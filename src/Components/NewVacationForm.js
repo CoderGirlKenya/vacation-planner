@@ -7,9 +7,11 @@ const NewVacationForm = (props) => {
 
     const [enteredActivity, setEnteredActivity] = useState('');
     
-    const [activityTypeObj,setActivityType]= useState("");
+    const [activityType,setActivityType]= useState('');
 
     const activityTypeArray = ["OUTDOORS", "TOURS", "FOOD"];
+
+     
 
           const destinationChangeHandler = (event) => {
               setEnteredDestination(event.target.value)
@@ -20,20 +22,31 @@ const NewVacationForm = (props) => {
             setEnteredActivity(event.target.value)
              };
         
-            const activityTypeChangeHandler = (event) =>{
+            const activityTypeChangeHandler = (event) => {
                 setActivityType(event.target.value)
-            };
-        
+                
+                const {
+                    target: {activityType, value}
+                    }= event
+
+                    this.setState({[activityType]: value})
+                };
+            
+
+          
             const addToList = (event) => {
                 event.preventDefault();
-                
+            
+            
+                                
                const vacationData = {
-                    id : Math.random().toString(),
                     destination: enteredDestination,
-                    activityType: {activityTypeObj: [enteredActivity]}
+                    activityType: {[activityType]:enteredActivity}
                 }
                 
                 props.onSaveVacation(vacationData)
+
+            
             
                setEnteredDestination('');
                setActivityType('');
@@ -45,35 +58,33 @@ const NewVacationForm = (props) => {
                 <div>
                 <label>DESTINATION</label>
                     <input  
-                    type = "text"
-                     value = {enteredDestination}
-                     onChange = {destinationChangeHandler}
-                    //  key={Math.random().toString()}
+                    type="text"
+                     value={enteredDestination}
+                     onChange={destinationChangeHandler}
                     />  
                 </div>
                 <div>
                 
                 <select 
                 onChange={activityTypeChangeHandler} 
-                value={activityTypeObj}
-                // key={Math.random().toString()}
+                value={activityType}
+                key={Math.random().toString()}
                 >
                 <option>SELECT ACTIVITY TYPE</option> */
                 {activityTypeArray.map((activityType,index) => (
-                <option >{activityType}</option> 
+                <option key={Math.random().toString()}>{activityType}</option> 
                 ))} 
                 </select>
                     <input
                      type = "text" 
                     value = {enteredActivity} 
                     onChange={activityChangeHandler}
-                    // key={Math.random().toString()} 
                    />
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
          */}
                  </div>
                 <div>
-                    <button type= "button" onClick={addToList}> ADD TO PLANNER </button>
+                    <button type= "button" onClick={addToList} > ADD TO PLANNER </button>
                 </div>
     
         </div>

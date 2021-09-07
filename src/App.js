@@ -21,9 +21,9 @@ const App =(props)=>{
         <div>
         {INITIAL_VACATIONS.map(vacations => (
         <VacationItem 
-        key= {vacations.id}
-        destination = {vacations.destination} 
-        activityType = {vacations.activityType}
+        key={vacations.id}
+        destination={vacations.destination} 
+        activityType={vacations.activityType}
         // outdoors={vacations.type.outdoors}
         // tours = {vacations.type.tours}
         // food = {vacations.type.food}
