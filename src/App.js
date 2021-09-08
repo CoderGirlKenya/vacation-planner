@@ -16,7 +16,7 @@ const App =(props)=>{
     return (
         <form>
         <div>
-        <NewVacation onAddVacation={addVacationHandler}/>
+        <NewVacation items={vacations} onAddVacation={addVacationHandler}/>
         </div>
         <div>
         {INITIAL_VACATIONS.map(vacations => (
