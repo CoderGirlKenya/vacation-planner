@@ -1,8 +1,7 @@
 import React from "react";
 
-
 const VacationItem = (props) => {
-    
+
              
          
              //console.log(vacationData);
@@ -14,7 +13,7 @@ const VacationItem = (props) => {
              <input type="date" name="travelReturnDate"/>
              <select name = "outdoors" >
                  <option value = ''> Select OutDoor Activities</option> 
-                 {props.activityType.outdoors.map((outdoorsType,index) =>  
+                 {props.outdoors.map((outdoorsType,index) =>  
                  <option 
                  value={index} key={Math.random().toString()}
                  > {outdoorsType}
@@ -28,7 +27,7 @@ const VacationItem = (props) => {
              <div >
                 <select name = "tours" >
                  <option value = ''>Select Tours</option>
-                 {props.activityType.tours.map((toursType,index) =>  
+                 {props.tours.map((toursType,index) =>  
                  <option value={index} key={Math.random().toString()}> {toursType}</option>
                  )} 
                   {/* <option value = "1">{props.type.tours[0]}</option>
@@ -39,7 +38,7 @@ const VacationItem = (props) => {
              <div>
                  <select name = "food">
                  <option value = ''>Select Food Activities</option>
-                 {props.activityType.food.map((foodType,index) => 
+                 {props.food.map((foodType,index) => 
                  <option value={index} key={Math.random().toString()}> {foodType}</option>  
                   )} 
                  {/* <option value = "1">{props.type.food[0]}</option>
