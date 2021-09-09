@@ -35,6 +35,7 @@ const NewVacationForm = (props) => {
                 event.preventDefault();
                 
                const vacationData = {
+                            id: Math.random().toString(),
                     destination: enteredDestination,
                     activityType: {outdoors: outdoors,
                                     tours: tours, 
