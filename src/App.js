@@ -7,10 +7,14 @@ import VacationItem from "./Data/VacationItem";
 const App =(props)=>{
   const [vacations, setNewVacations] = useState(INITIAL_VACATIONS);
   const addVacationHandler = (vacations) =>{
+
     setNewVacations((prevVacations) =>{
-      return [vacations, ...prevVacations];
+      const vacationsList=[vacations, ...prevVacations];
+      console.log(vacationsList)
+      return vacationsList;
     });
-    console.log(vacations)
+    
+  
   };
   
     return (
@@ -19,7 +23,7 @@ const App =(props)=>{
         <NewVacation items={vacations} onAddVacation={addVacationHandler}/>
         </div>
         <div>
-        {INITIAL_VACATIONS.map(vacations => (
+        {INITIAL_VACATIONS.map((vacations) => (
         <VacationItem 
         key={Math.random().toString()}
         id={vacations.id}
