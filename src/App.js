@@ -23,16 +23,16 @@ const App =(props)=>{
         <NewVacation items={vacations} onAddVacation={addVacationHandler}/>
         </div>
         <div>
-        {INITIAL_VACATIONS.map((vacations) => (
+        {vacations.map(vacation => (
         <VacationItem 
         key={Math.random().toString()}
-        id={vacations.id}
-        destination={vacations.destination} 
-        outdoors={vacations.activityType.outdoors}
-        tours = {vacations.activityType.tours}
-        food = {vacations.activityType.food}
+        id={vacation.id}
+        destination={vacation.destination} 
+        outdoors={vacation.activityType.outdoors}
+        tours = {vacation.activityType.tours}
+        food = {vacation.activityType.food}
        />
-        ))} 
+        ))}
         
         </div>
         </form>
