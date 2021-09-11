@@ -28,9 +28,9 @@ const App =(props)=>{
         key={Math.random().toString()}
         id={vacation.id}
         destination={vacation.destination} 
-        outdoors={vacation.activityType.outdoors}
-        tours = {vacation.activityType.tours}
-        food = {vacation.activityType.food}
+        outdoors={vacation.outdoors}
+        tours = {vacation.tours}
+        food = {vacation.food}
        />
         ))}
         
