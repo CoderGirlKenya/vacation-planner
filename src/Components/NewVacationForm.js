@@ -37,9 +37,9 @@ const NewVacationForm = (props) => {
                const vacationData = {
                             id: Math.random().toString(),
                     destination: enteredDestination,
-                     outdoors: outdoors,
-                                    tours: tours, 
-                                    food: food,
+                       outdoors : outdoors,
+                            tours: tours, 
+                            food: food,
                 }
                 
                 props.onSaveVacation(vacationData)
