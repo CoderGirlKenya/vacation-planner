@@ -5,11 +5,11 @@ const NewVacationForm = (props) => {
     
     const [enteredDestination, setEnteredDestination] = useState('');
 
-    const [outdoors, setOutdoors] = useState('');
+    const [enteredOutdoors, setOutdoors] = useState('');
 
-    const [tours, setTours] = useState('');
+    const [enteredTours, setTours] = useState('');
 
-    const [food, setFood] = useState('');
+    const [enteredFood, setFood] = useState('');
 
      
 
@@ -37,9 +37,9 @@ const NewVacationForm = (props) => {
                const vacationData = {
                             id: Math.random().toString(),
                     destination: enteredDestination,
-                       outdoors : outdoors,
-                            tours: tours, 
-                            food: food,
+                       outdoorsActivity : enteredOutdoors,
+                            toursActivity: enteredTours, 
+                            foodActivity: enteredFood,
                 }
                 
                 props.onSaveVacation(vacationData)
@@ -66,19 +66,19 @@ const NewVacationForm = (props) => {
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {outdoors} 
+                    value = {enteredOutdoors} 
                     onChange={outdoorsChangeHandler}
                    />
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {tours} 
+                    value = {enteredTours} 
                     onChange={toursChangeHandler}
                    />
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {food} 
+                    value = {enteredFood} 
                     onChange={foodChangeHandler}
                    />
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
