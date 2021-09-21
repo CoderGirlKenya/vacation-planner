@@ -5,7 +5,7 @@ import NewVacationForm from "./NewVacationForm";
 const NewVacation = (props) => {
     const onSaveVacationHandler = (enteredVacationData) =>{
         const vacationData = {
-            ...enteredVacationData,
+            ...enteredVacationData,INITIAL_VACATIONS
         };
         //console.log(vacationData);
         props.onAddVacation(vacationData);

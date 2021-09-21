@@ -35,7 +35,7 @@ const NewVacationForm = (props) => {
                 event.preventDefault();
                 
                const vacationData = {
-                            id: Math.random().toString(),
+                            id: enteredDestination,
                     destination: enteredDestination,
                        outdoorsActivity : enteredOutdoors,
                             toursActivity: enteredTours, 
@@ -54,15 +54,14 @@ const NewVacationForm = (props) => {
              
             return (
             <div>
-                <div>
+            
                 <label>DESTINATION</label>
                     <input  
                     type="text"
                      value={enteredDestination}
                      onChange={destinationChangeHandler}
                     />  
-                </div>
-                <div>
+                
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
@@ -83,7 +82,7 @@ const NewVacationForm = (props) => {
                    />
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
          */}
-                 </div>
+        
                 <div>
                     <button type= "button" onClick={addToList} > ADD TO PLANNER </button>
                 </div>

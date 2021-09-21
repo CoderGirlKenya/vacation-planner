@@ -25,8 +25,8 @@ const App =(props)=>{
         <div>
         {vacations.map(vacation => (
         <VacationItem 
-        key={Math.random().toString()}
-        id={vacation.id}
+        key={vacation.destination}
+        id={vacation.destination}
         destination={vacation.destination} 
         outdoors={vacation.outdoorsActivity}
         tours = {vacation.toursActivity}
