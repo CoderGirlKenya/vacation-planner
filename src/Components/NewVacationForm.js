@@ -3,13 +3,13 @@ import React,{useState} from "react";
 
 const NewVacationForm = (props) => {
     
-    const [enteredDestination, setEnteredDestination] = useState('');
+    const [destination, setEnteredDestination] = useState('');
 
-    const [enteredOutdoors, setOutdoors] = useState('');
+    const [outdoors, setOutdoors] = useState('');
 
-    const [enteredTours, setTours] = useState('');
+    const [tours, setTours] = useState('');
 
-    const [enteredFood, setFood] = useState('');
+    const [food, setFood] = useState('');
 
      
 
@@ -35,11 +35,11 @@ const NewVacationForm = (props) => {
                 event.preventDefault();
                 
                const vacationData = {
-                            id: enteredDestination,
-                    destination: enteredDestination,
-                       outdoorsActivity : enteredOutdoors,
-                            toursActivity: enteredTours, 
-                            foodActivity: enteredFood,
+                            id: destination,
+                    destination: destination,
+                       outdoorsActivity : outdoors,
+                            toursActivity: tours, 
+                            foodActivity: food,
                 }
                 
                 props.onSaveVacation(vacationData)
@@ -58,26 +58,26 @@ const NewVacationForm = (props) => {
                 <label>DESTINATION</label>
                     <input  
                     type="text"
-                     value={enteredDestination}
+                     value={destination}
                      onChange={destinationChangeHandler}
                     />  
                 
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {enteredOutdoors} 
+                    value = {outdoors} 
                     onChange={outdoorsChangeHandler}
                    />
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {enteredTours} 
+                    value = {tours} 
                     onChange={toursChangeHandler}
                    />
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {enteredFood} 
+                    value = {food} 
                     onChange={foodChangeHandler}
                    />
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}

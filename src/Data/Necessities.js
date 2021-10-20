@@ -1,8 +1,10 @@
+import classes from "../Data/Necessities.module.css";
+
 const Necessities=()=>{
     
     return(
-        <div>
-            <ul> NECESSITIES
+        <div className={classes.necessities}>
+            <ul className={classes.necessities}> NECESSITIES
                 <li>Undergarments<input type = "checkbox"></input></li>
                 <li>Outfits<input type = "checkbox"></input></li>
                 <li>Shoes<input type = "checkbox"></input></li>

@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import NewVacation from "./Components/NewVacation";
 import {INITIAL_VACATIONS} from "./Data/VacationList";
 import VacationItem from "./Data/VacationItem";
+import { Route } from "react-router-dom";
+import Welcome from "./Data/Welcome";
+import Necessities from "./Data/Necessities";
+
 
 const App =(props)=>{
   const [vacations, setNewVacations] = useState(INITIAL_VACATIONS);
@@ -18,11 +22,18 @@ const App =(props)=>{
   };
   
     return (
-        <form>
         <div>
-        <NewVacation items={vacations} onAddVacation={addVacationHandler}/>
-        </div>
-        <div>
+          <header>
+      <Welcome/>
+         </header>
+        <main>
+        <Route path="/welcome">
+        <Welcome />
+        </Route>
+        <Route path="/newVacation">
+        <NewVacation item={vacations} onAddVacation={addVacationHandler} />
+        </Route>
+        <Route path="/vacationItem">
         {vacations.map(vacation => (
         <VacationItem 
         key={vacation.destination}
@@ -31,11 +42,16 @@ const App =(props)=>{
         outdoors={vacation.outdoorsActivity}
         tours = {vacation.toursActivity}
         food = {vacation.foodActivity}
-       />
+       /> 
         ))}
+        </Route>
+        <Route path="/necessities">
+          <Necessities/>
+        </Route>
         
-        </div>
-        </form>
+        </main>
+        
+      </div>
     )
     
 };

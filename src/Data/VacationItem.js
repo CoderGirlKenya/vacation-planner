@@ -1,21 +1,15 @@
 import React from "react";
+import classes from "../Data/VacationItem.module.css"
 
 const VacationItem = (props) => {
 
-            //  const outdoors = props.outdoors;
-
-            //  const tours = props.tours;
-
-            //  const food = props.food;
-         
-             //console.log(vacationData);
      return (
-         <div>
+         <div className={classes.vacationItem}>
          <h1 value={props.destination}>{props.destination} </h1>
-             
+             <section>
              <input type="date" name="travelDate"/>
              <input type="date" name="travelReturnDate"/>
-
+            </section>
              <label>OUTDOOR ACTIVITY</label>
              <ul 
              name = "activityType"
