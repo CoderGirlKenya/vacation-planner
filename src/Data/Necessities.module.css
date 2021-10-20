@@ -1,4 +1,7 @@
 .necessities{
     background-color: yellow;
-    
+    margin-top: 0pt;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+   
 }

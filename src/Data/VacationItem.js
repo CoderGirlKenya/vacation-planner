@@ -6,10 +6,10 @@ const VacationItem = (props) => {
      return (
          <div className={classes.vacationItem}>
          <h1 value={props.destination}>{props.destination} </h1>
-             <section>
+             <div>
              <input type="date" name="travelDate"/>
              <input type="date" name="travelReturnDate"/>
-            </section>
+            </div>
              <label>OUTDOOR ACTIVITY</label>
              <ul 
              name = "activityType"

@@ -1,4 +1,12 @@
 .vacationItem {
     background-color: magenta;
     padding: 0em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px yellow;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    
 }
