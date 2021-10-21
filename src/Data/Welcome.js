@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import classes from "../Data/Welcome.module.css";
 
 const Welcome = () => {
@@ -6,6 +6,10 @@ const Welcome = () => {
         <header className={classes.header}>
             <nav>
                 <ul>
+                    <li>
+                        <NavLink activeClassName={classes.active}
+                        to='/'>HomePage</NavLink>
+                        </li>
                     <li>
                     <NavLink activeClassName={classes.active}
                     to="newVacation">New Vacation</NavLink>

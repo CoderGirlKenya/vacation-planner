@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import NewVacation from "./Components/NewVacation";
 import {INITIAL_VACATIONS} from "./Data/VacationList";
 import VacationItem from "./Data/VacationItem";
-import { Route } from "react-router-dom";
+import { Route} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
+import { Fragment } from "react";
 
 
 const App =(props)=>{
@@ -22,11 +23,14 @@ const App =(props)=>{
   };
   
     return (
-        <div>
+        <Fragment>
           <header>
       <Welcome/>
          </header>
         <main>
+        <Route path="/">
+
+        </Route>
         <Route path="/welcome">
         <Welcome />
         </Route>
@@ -50,8 +54,7 @@ const App =(props)=>{
         </Route>
         
         </main>
-        
-      </div>
+        </Fragment>
     )
     
 };

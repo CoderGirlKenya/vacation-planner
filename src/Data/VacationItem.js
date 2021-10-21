@@ -1,10 +1,22 @@
 import React from "react";
 import classes from "../Data/VacationItem.module.css"
+import { Fragment } from "react";
+import SortVacations from "../Components/SortVacations";
 
 const VacationItem = (props) => {
 
+    
+
+
+
+
      return (
-         <div className={classes.vacationItem}>
+         <Fragment>
+             <div  className={classes.background}>
+             <SortVacations/>
+             </div>
+             <section>
+             <div className={classes.vacationItem}>
          <h1 value={props.destination}>{props.destination} </h1>
              <div>
              <input type="date" name="travelDate"/>
@@ -25,12 +37,12 @@ const VacationItem = (props) => {
              <ul name = "activityType" > 
                  <li value={props.food}>{props.food}</li>
               </ul>
-         
-        
         </div>
+        </section>
+        </Fragment>
 )
-}
-                
+
+     }              
  
  
  
