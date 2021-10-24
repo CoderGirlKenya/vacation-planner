@@ -1,13 +1,29 @@
-import React,{useState, useRef} from "react";
+import React,{useState, useRef, useEffect} from "react";
 import classes from "./NewVacationForm.module.css"
+
+const getLocalStorage = () =>{
+    let vacations= localStorage.getItem("vacations");
+    if(vacations){
+        return (vacations =JSON.parse(localStorage.getItem("vacations")));
+    } else {
+        return [];
+    }
+
+};
 
 const isEmpty = value => value.trim() === '';
 
 const NewVacationForm = (props) => {
+    const [vacations,setVacations] = useState(getLocalStorage());
+    
     const destinationInputRef = useRef();
     const outdoorsInputRef = useRef();
     const toursInputRef = useRef();
     const foodInputRef = useRef();
+
+    useEffect (() =>{
+        localStorage.setItem("vacations", JSON.stringify(vacations))
+    }, [vacations])
 
     const [formsInputValidity, setFormsInputValidity] = useState({
         destination: true,
@@ -64,6 +80,7 @@ const NewVacationForm = (props) => {
                     food: enteredFoodIsValid,
                 })
 
+            
                 const formIsValid = enteredDestinationIsValid && enteredToursIsValid && enteredOutdoorsIsValid && enteredFoodIsValid
             }
             
