@@ -98,10 +98,11 @@ const NewVacationForm = (props) => {
         
              
             return (
-            <div>
+            <div className={classes.backgroundImage}>
                     <div className={destinationControlClasses}>
                 <label>DESTINATION</label>
-                    <input  
+                    <input 
+                     
                     type="text"
                     //  
                     ref={destinationInputRef}

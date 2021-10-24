@@ -8,7 +8,7 @@ const Welcome = () => {
                 <ul>
                     <li>
                         <NavLink activeClassName={classes.active}
-                        to='/'>HomePage</NavLink>
+                        to='intro'>HomePage</NavLink>
                         </li>
                     <li>
                     <NavLink activeClassName={classes.active}

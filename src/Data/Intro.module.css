@@ -1,0 +1,23 @@
+.page{
+    background-image: url("/src/images/waterfalls.jfif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.title{
+    font-size: 60px;
+    text-align: center;
+    color: yellow;
+    font-style: italic;
+    font-family: cursive;
+}
+
+.intro{
+    font-size: 45px;
+    text-align: center;
+    color:yellow;
+    text-shadow: turquoise;
+}

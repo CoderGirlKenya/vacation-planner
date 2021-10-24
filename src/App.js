@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import NewVacation from "./Components/NewVacation";
 import {INITIAL_VACATIONS} from "./Data/VacationList";
 import VacationItem from "./Data/VacationItem";
-import { Route} from "react-router-dom";
+import { Route, Redirect} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
 import { Fragment } from "react";
+import Intro from "./Data/Intro";
 
 
 const App =(props)=>{
@@ -29,7 +30,10 @@ const App =(props)=>{
          </header>
         <main>
         <Route path="/">
-
+        <Redirect to="/intro"/>
+        </Route>
+        <Route path="/intro">
+        <Intro/>
         </Route>
         <Route path="/welcome">
         <Welcome />

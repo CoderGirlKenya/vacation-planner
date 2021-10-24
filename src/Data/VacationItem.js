@@ -12,32 +12,26 @@ const VacationItem = (props) => {
 
      return (
          <Fragment>
-             <div  className={classes.background}>
-             </div>
-             <section>
+             
+            <div className={classes.entire}>
              <div className={classes.vacationItem}>
          <h1 value={props.destination}>{props.destination} </h1>
-             <div>
+             
              <input type="date" name="travelDate"/>
              <input type="date" name="travelReturnDate"/>
-            </div>
+        <ul>
              <label>OUTDOOR ACTIVITY</label>
-             <ul 
-             name = "activityType"
-             value={props.outdoors} > 
-                 <li value={props.outdoors}>{props.outdoors}</li>
-             </ul>
+            <li name="activitytype" value={props.outdoors}>{props.outdoors}</li>
+             
              <label>TOUR ACTIVITY</label>
-             <ul name = "activityType" > 
-                 <li value={props.tours}>{props.tours}</li>
-             </ul>
+             <li value={props.tours}>{props.tours}</li>
+             
         
              <label>FOOD ACTIVITY</label>
-             <ul name = "activityType" > 
-                 <li value={props.food}>{props.food}</li>
+            <li value={props.food}>{props.food}</li>
               </ul>
         </div>
-        </section>
+        </div>
         </Fragment>
 )
 

@@ -1,16 +1,11 @@
 .vacationItem {
-    background-color: magenta;
+    background: magenta;
     padding: 0.5em;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 8px yellow;
-    padding: 0.5rem;
-    margin: 1rem 0;
-    border-radius: 12px;
-    
+    align-items: flex-start;
+    overflow: hidden;
 }
 
-.background{
-    background-color: rgb(61, 59, 56);
-}
+
