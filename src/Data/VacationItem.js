@@ -13,7 +13,6 @@ const VacationItem = (props) => {
      return (
          <Fragment>
              <div  className={classes.background}>
-             <SortVacations/>
              </div>
              <section>
              <div className={classes.vacationItem}>
