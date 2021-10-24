@@ -17,27 +17,33 @@ const NewVacationForm = (props) => {
 
      
 
-          const destinationChangeHandler = (event) => {
-            //   setEnteredDestination(event.target.value)
+        //   const destinationChangeHandler = (event) => {
+        //     //   setEnteredDestination(event.target.value)
               
-            };            
+        //     };            
     
-            const outdoorsChangeHandler= (event) => {
-                // setOutdoors(event.target.value)
-            };
+        //     const outdoorsChangeHandler= (event) => {
+        //         // setOutdoors(event.target.value)
+        //     };
 
-            const toursChangeHandler = (event) => {
-                // setTours(event.target.value)
-            };
+        //     const toursChangeHandler = (event) => {
+        //         // setTours(event.target.value)
+        //     };
             
-            const foodChangeHandler = (event) => {
-                // setFood(event.target.value)
-            };
+        //     const foodChangeHandler = (event) => {
+        //         // setFood(event.target.value)
+        //     };
 
           
             const addToList = (event) => {
                 event.preventDefault();
                 
+                const enteredDestination = destinationInputRef.current.value;
+                const enteredOutdoors = outdoorsInputRef.current.value;
+                const enteredTours = toursInputRef.current.value;
+                const enteredFood = foodInputRef.current.value;
+
+            }
             //    const vacationData = {
             //                 id: destination,
             //         destination: destination,
@@ -54,7 +60,7 @@ const NewVacationForm = (props) => {
             //    setOutdoors('');
             //    setTours('');
             //    setFood('');
-            };
+        
              
             return (
             <div>
@@ -64,7 +70,7 @@ const NewVacationForm = (props) => {
                     type="text"
                     //  
                     ref={destinationInputRef}
-                     onChange={destinationChangeHandler}
+                    //  onChange={destinationChangeHandler}
                     />  
                 
                     <label>OUTDOORS ACTIVITY</label>
@@ -72,21 +78,21 @@ const NewVacationForm = (props) => {
                      type = "text" 
                     // 
                     ref={outdoorsInputRef}
-                    onChange={outdoorsChangeHandler}
+                    // onChange={outdoorsChangeHandler}
                    />
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
                     // 
                     ref={toursInputRef} 
-                    onChange={toursChangeHandler}
+                    // onChange={toursChangeHandler}
                    />
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
                     // 
                     ref={foodInputRef}
-                    onChange={foodChangeHandler}
+                    // onChange={foodChangeHandler}
                    />
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
          */}
