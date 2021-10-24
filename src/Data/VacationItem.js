@@ -30,6 +30,10 @@ const VacationItem = (props) => {
              <label>FOOD ACTIVITY</label>
             <li value={props.food}>{props.food}</li>
               </ul>
+
+              <button>REMOVE ITEM</button>
+              <button>DELETE ITEM</button>
+              <button>BOOK VACATION</button>
         </div>
         </div>
         </Fragment>
