@@ -2,13 +2,13 @@
     margin-bottom: 0.5rem;
   }
 
-  .control label {
+.control label {
     font-weight: bold;
     margin-bottom: 0.25rem;
     display: block;
-  }
+}
   
-  .control input {
+.control input {
     font: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -17,11 +17,11 @@
   }
 
 
-  invalid label {
+.invalid label {
     color: #ca3e51;
   }
   
-  .invalid input {
+.invalid input {
     border-color: #aa0b20;
     background-color: #ffeff1;
   }

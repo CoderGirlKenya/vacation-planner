@@ -1,5 +1,5 @@
 import React,{useState, useRef} from "react";
-import classes from "./NewVacationForm.css"
+import classes from "./NewVacationForm.module.css"
 
 const isEmpty = value => value.trim() === '';
 
@@ -63,12 +63,17 @@ const NewVacationForm = (props) => {
                     tours: enteredToursIsValid,
                     food: enteredFoodIsValid,
                 })
-                
+
                 const formIsValid = enteredDestinationIsValid && enteredToursIsValid && enteredOutdoorsIsValid && enteredFoodIsValid
+            }
+            
+                const destinationControlClasses = `${classes.control} ${formsInputValidity.destination ?`` : classes.invalid}`
 
-                const destinationControlClasses = '${classes.control} ${formInputsValidty.destination ?"classes.invalid'}
+                const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoors ?`` : classes.invalid}`
 
+                const toursControlClasses = `${classes.control} ${formsInputValidity.tours ?`` : classes.invalid}`
 
+                const foodControlClasses = `${classes.control} ${formsInputValidity.food ?`` : classes.invalid}`
                 // if (!formIsValid)
                 //     return 
                 
@@ -94,7 +99,7 @@ const NewVacationForm = (props) => {
              
             return (
             <div>
-                    <div className={classes.destinationControlClasses}>
+                    <div className={destinationControlClasses}>
                 <label>DESTINATION</label>
                     <input  
                     type="text"
@@ -102,9 +107,11 @@ const NewVacationForm = (props) => {
                     ref={destinationInputRef}
                     //  onChange={destinationChangeHandler}
                     />  
+                    {!formsInputValidity.destination && <p>Please enter a destination</p>}
                     </div>
-                    <div>
-                {!formsInputValidity.destination && <p>Please enter a destination</p>}
+                    
+                    <div className={outdoorsControlClasses}>
+                
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
@@ -113,8 +120,9 @@ const NewVacationForm = (props) => {
                     // onChange={outdoorsChangeHandler}
                    />
                    </div>
-                   <div>
-               {!formsInputValidity.outdoors && <p>Enjoy the outdoors, pick an activity</p>}
+                   {!formsInputValidity.outdoors && <p>Enjoy the outdoors, pick an activity</p>}
+                   <div className={toursControlClasses}>
+               
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
@@ -122,9 +130,10 @@ const NewVacationForm = (props) => {
                     ref={toursInputRef} 
                     // onChange={toursChangeHandler}
                    />
+                   {!formsInputValidity.tours && <p>Explore the destination, take a tour</p>}
                    </div>
-                   <div>
-                {!formsInputValidity.tours && <p>Explore the destination, take a tour</p>}
+                   <div className={foodControlClasses}>
+                
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
