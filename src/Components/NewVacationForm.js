@@ -1,55 +1,59 @@
-import React,{useState} from "react";
+import React,{useState, useRef} from "react";
 
 
 const NewVacationForm = (props) => {
-    
-    const [destination, setEnteredDestination] = useState('');
+    const destinationInputRef = useRef();
+    const outdoorsInputRef = useRef();
+    const toursInputRef = useRef();
+    const foodInputRef = useRef();
 
-    const [outdoors, setOutdoors] = useState('');
+    // const [destination, setEnteredDestination] = useState('');
 
-    const [tours, setTours] = useState('');
+    // const [outdoors, setOutdoors] = useState('');
 
-    const [food, setFood] = useState('');
+    // const [tours, setTours] = useState('');
+
+    // const [food, setFood] = useState('');
 
      
 
           const destinationChangeHandler = (event) => {
-              setEnteredDestination(event.target.value)
+            //   setEnteredDestination(event.target.value)
               
             };            
     
             const outdoorsChangeHandler= (event) => {
-                setOutdoors(event.target.value)
+                // setOutdoors(event.target.value)
             };
 
             const toursChangeHandler = (event) => {
-                setTours(event.target.value)
+                // setTours(event.target.value)
             };
             
             const foodChangeHandler = (event) => {
-                setFood(event.target.value)
+                // setFood(event.target.value)
             };
 
           
             const addToList = (event) => {
                 event.preventDefault();
                 
-               const vacationData = {
-                            id: destination,
-                    destination: destination,
-                       outdoorsActivity : outdoors,
-                            toursActivity: tours, 
-                            foodActivity: food,
-                }
+            //    const vacationData = {
+            //                 id: destination,
+            //         destination: destination,
+            //            outdoorsActivity : outdoors,
+            //                 toursActivity: tours, 
+            //                 foodActivity: food,
+            //     }
                 
-                props.onSaveVacation(vacationData)
+                // props.onSaveVacation(vacationData)
 
             
             
-               setEnteredDestination('');
-               setOutdoors('');
-               setTours('');
-               setFood('');
+            //    setEnteredDestination('');
+            //    setOutdoors('');
+            //    setTours('');
+            //    setFood('');
             };
              
             return (
@@ -58,26 +62,30 @@ const NewVacationForm = (props) => {
                 <label>DESTINATION</label>
                     <input  
                     type="text"
-                     value={destination}
+                    //  
+                    ref={destinationInputRef}
                      onChange={destinationChangeHandler}
                     />  
                 
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {outdoors} 
+                    // 
+                    ref={outdoorsInputRef}
                     onChange={outdoorsChangeHandler}
                    />
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {tours} 
+                    // 
+                    ref={toursInputRef} 
                     onChange={toursChangeHandler}
                    />
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
-                    value = {food} 
+                    // 
+                    ref={foodInputRef}
                     onChange={foodChangeHandler}
                    />
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
