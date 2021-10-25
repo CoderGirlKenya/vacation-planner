@@ -1,29 +1,34 @@
-import React,{useState, useRef, useEffect} from "react";
+import React,{useState, useRef, useEffect, Fragment} from "react";
 import classes from "./NewVacationForm.module.css"
 
-const getLocalStorage = () =>{
-    let vacations= localStorage.getItem("vacations");
-    if(vacations){
-        return (vacations =JSON.parse(localStorage.getItem("vacations")));
-    } else {
-        return [];
-    }
+// const getLocalStorage = () =>{
+//     let vacations = localStorage.getItem("vacations");
+//     if(vacations){
+//         return (vacations =JSON.parse(localStorage.getItem("vacations")));
+//     } else {
+//         return [];
+//     }
 
-};
+// };
 
 const isEmpty = value => value.trim() === '';
 
 const NewVacationForm = (props) => {
-    const [vacations,setVacations] = useState(getLocalStorage());
+    const [vacations, setVacations] = useState([]);
+        // const localData =localStorage.getItem('vacations');
+        // console.log(localData);
+        // return localData ? JSON.parse(localData):[];
+    //});
+
+    // useEffect (() =>{
+    //      localStorage.setItem('vacations', JSON.stringify(vacations))
+    //  }, [vacations])
+
     const [formIsValid, setFormIsValid] = useState(false)
     const destinationInputRef = useRef(props.destination);
     const outdoorsInputRef = useRef(props.outdoors);
     const toursInputRef = useRef(props.tours);
     const foodInputRef = useRef(props.food);
-
-    useEffect (() =>{
-        localStorage.setItem("vacations", JSON.stringify(vacations))
-    }, [vacations])
 
     const [formsInputValidity, setFormsInputValidity] = useState({
         destination: true,
@@ -85,7 +90,10 @@ const NewVacationForm = (props) => {
                 const enteredToursIsValid = !isEmpty(enteredTours);
                 const enteredFoodIsValid = !isEmpty(enteredFood);
 
+                console.log(enteredDestinationIsValid);
+
                 setFormsInputValidity({
+                    id: enteredDestination,
                     destination: enteredDestinationIsValid,
                     outdoorsActivity: enteredOutdoorsIsValid,
                     toursActivity: enteredToursIsValid,
@@ -93,6 +101,7 @@ const NewVacationForm = (props) => {
                 });
 
                 if(formIsValid === enteredDestinationIsValid && enteredToursIsValid && enteredOutdoorsIsValid && enteredFoodIsValid){
+                    setFormIsValid(true)
                     setVacations(
                         vacations.map((vacation) =>{
                             return{...vacation, vacations}
@@ -100,6 +109,8 @@ const NewVacationForm = (props) => {
                     )
                 } 
             }
+
+            
 
                 
                     
@@ -135,6 +146,7 @@ const NewVacationForm = (props) => {
         
              
             return (
+                <Fragment>
             <div className={classes.backgroundImage}>
                     <div className={destinationControlClasses}>
                 <label>DESTINATION</label>
@@ -145,9 +157,9 @@ const NewVacationForm = (props) => {
                     ref={destinationInputRef}
                     //  onChange={destinationChangeHandler}
                     />  
+                    {!formsInputValidity.destination && <p className={classes.notValid}>See some place new, please enter a destination</p>}
                     </div>
-                    {!formsInputValidity.destination && <p>Please enter a destination</p>}
-
+                    
                     <div className={outdoorsControlClasses}>
                     <label>OUTDOORS ACTIVITY</label>
                     <input
@@ -156,8 +168,9 @@ const NewVacationForm = (props) => {
                     ref={outdoorsInputRef}
                     // onChange={outdoorsChangeHandler}
                    />
+                   {!formsInputValidity.outdoors && <p className={classes.notValid}>Enjoy the outdoors, pick an activity</p>}
                    </div>
-                   {!formsInputValidity.outdoors && <p>Enjoy the outdoors, pick an activity</p>}
+                   
 
                    <div className={toursControlClasses}>
                    <label>TOUR ACTIVITY</label>
@@ -167,9 +180,9 @@ const NewVacationForm = (props) => {
                     ref={toursInputRef} 
                     // onChange={toursChangeHandler}
                    />
+                   {!formsInputValidity.tours && <p className={classes.notValid}>Explore the destination, take a tour</p>}
                    </div>
-                   {!formsInputValidity.tours && <p>Explore the destination, take a tour</p>}
-
+                   
                    <div className={foodControlClasses}>
                    <label>FOOD ACTIVITY</label>
                     <input
@@ -178,8 +191,9 @@ const NewVacationForm = (props) => {
                     ref={foodInputRef}
                     // onChange={foodChangeHandler}
                    />
+                   {!formsInputValidity.food && <p className={classes.notValid}>Try a native dish, add a food activity</p>}
                </div>
-               {!formsInputValidity.food && <p>Try a native dish, add a food activity</p>}
+               
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
          */}
         
@@ -188,6 +202,7 @@ const NewVacationForm = (props) => {
                 </div>
     
         </div>
+        </Fragment>
             )
         
         };

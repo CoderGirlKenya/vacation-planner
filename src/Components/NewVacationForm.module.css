@@ -40,4 +40,8 @@
     
   }
 
+  .notValid{
+    color: red;
+    font-size: 24pt;
+  }
   
