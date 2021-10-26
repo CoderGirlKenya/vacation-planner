@@ -13,7 +13,7 @@ const VacationItem = (props) => {
      return (
          <Fragment>
              
-            <div className={classes.entire}>
+            <div class="card-body">
              <div className={classes.vacationItem}>
          <h1 value={props.destination}>{props.destination} </h1>
              
@@ -31,9 +31,9 @@ const VacationItem = (props) => {
             <li value={props.food}>{props.food}</li>
               </ul>
 
-              <button>REMOVE ITEM</button>
-              <button>DELETE ITEM</button>
-              <button>BOOK VACATION</button>
+              <button class="btn btn-primary btn-sm">REMOVE ITEM</button>
+              <button class="btn btn-primary btn-sm">DELETE ITEM</button>
+              <button class="btn btn-primary btn-sm">BOOK VACATION</button>
         </div>
         </div>
         </Fragment>

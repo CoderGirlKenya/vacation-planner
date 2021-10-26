@@ -13,11 +13,15 @@
     color: yellow;
     font-style: italic;
     font-family: cursive;
+    position: relative;
+    top: 100px;
 }
 
 .intro{
-    font-size: 45px;
+    font-size: 35px;
     text-align: center;
     color:yellow;
     text-shadow: turquoise;
+    position: relative;
+    top: 80px;
 }

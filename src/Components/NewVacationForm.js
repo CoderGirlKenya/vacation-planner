@@ -198,7 +198,7 @@ const NewVacationForm = (props) => {
          */}
         
                 <div>
-                    <button type= "button" onClick={addToList} > ADD TO PLANNER </button>
+                    <button type= "button" class="btn-primary" onClick={addToList} > ADD TO PLANNER </button>
                 </div>
     
         </div>
