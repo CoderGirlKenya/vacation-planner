@@ -31,7 +31,6 @@
 
   .backgroundImage {
     background-image: url("/src/images/night-palm-trees.jpg");
-    background-position: fixed;
     background-repeat: none;
     background-size: cover;
     height: 100vh;

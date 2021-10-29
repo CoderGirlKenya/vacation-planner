@@ -1,4 +1,4 @@
-import React, {createContext, useReducer} from 'React';
+import React, {createContext, useReducer} from 'react';
 import AppReducer from "./AppReducers";
 
 const initialState ={
@@ -30,9 +30,25 @@ export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({children}) => {
     const [state,dispatch] = useReducer(AppReducer, initialState);
+//Actions that will be dispatched by the reducer
+function deleteVacation(id){
+  dispatch({
+    type: 'DELETE_VACATION',
+    payload: id, 
+  })
+}
+
+function addVacation(vacation){
+  dispatch({
+    type: 'ADD_VACATION',
+    payload: vacation, 
+  })
+}
 
     return (<GlobalContext.Provider value = {{
-        vacations: state.vacations
+        vacations: state.vacations,
+        deleteVacation,
+        addVacation
     }}>
         {children}
         </GlobalContext.Provider>);

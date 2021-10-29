@@ -1,203 +1,99 @@
-import React,{useState, useRef, useEffect, Fragment} from "react";
-import { INITIAL_VACATIONS } from "../Data/VacationList";
-import classes from "./NewVacationForm.module.css"
+import React,{useState, useContext} from "react";
+import classes from "./NewVacationForm.module.css";
+import { GlobalContext } from '../context/GlobalState';
 
-// const getLocalStorage = () =>{
-//     let vacations = localStorage.getItem("vacations");
-//     if(vacations){
-//         return (vacations =JSON.parse(localStorage.getItem("vacations")));
-//     } else {
-//         return [];
-//     }
-
-// };
 
 const isEmpty = value => value.trim() === '';
 
-const NewVacationForm = (props) => {
-    const [vacations, setVacations] = useState(INITIAL_VACATIONS);
-        // const localData =localStorage.getItem('vacations');
-        // console.log(localData);
-        // return localData ? JSON.parse(localData):[];
-    //});
+const NewVacationForm = () => {
+    const [destination, setEnteredDestination] = useState('');
 
-    // useEffect (() =>{
-    //      localStorage.setItem('vacations', JSON.stringify(vacations))
-    //  }, [vacations])
+    const [outdoorsActivity, setOutdoors] = useState('');
 
-    const [formIsValid, setFormIsValid] = useState(false);
-    const destinationInputRef = useRef(props.destination);
-    const outdoorsInputRef = useRef(props.outdoors);
-    const toursInputRef = useRef(props.tours);
-    const foodInputRef = useRef(props.food);
+    const [toursActivity, setTours] = useState('');
 
-const [formsInputValidity, setFormsInputValidity] = useState({
-    destinationInputRef: '',
-    outdoorsInputRef: '',
-    toursInputRef: '',
-    foodInputRef: '',
-});
+    const [foodActivity, setFood] = useState('');
 
+    const {addVacation} = useContext(GlobalContext);
     
-    // const [destination, setEnteredDestination] = useState('');
+    const [formsInputValidity, setFormsInputValidity] = useState(false);
 
-    // const [outdoors, setOutdoors] = useState('');
-
-    // const [tours, setTours] = useState('');
-
-    // const [food, setFood] = useState('');
-
-     
-
-        //   const destinationChangeHandler = (event) => {
-        //     //   setEnteredDestination(event.target.value)
-              
-        //     };            
-    
-        //     const outdoorsChangeHandler= (event) => {
-        //         // setOutdoors(event.target.value)
-        //     };
-
-        //     const toursChangeHandler = (event) => {
-        //         // setTours(event.target.value)
-        //     };
-            
-        //     const foodChangeHandler = (event) => {
-        //         // setFood(event.target.value)
-        //     };
-
-          
-            
-                
-                
-                
-            
-               
-          const addToList = (event) => {
-            event.preventDefault();
-           
-                const enteredDestination = destinationInputRef.current.value;
-                const enteredOutdoors = outdoorsInputRef.current.value;
-                const enteredTours = toursInputRef.current.value;
-                const enteredFood = foodInputRef.current.value;
-
-                console.log(enteredDestination);
-                console.log(enteredOutdoors);
-                console.log(enteredTours);
-                console.log(enteredFood);
-
-                const enteredDestinationIsValid = !isEmpty(enteredDestination);
-                const enteredOutdoorsIsValid = !isEmpty(enteredOutdoors);
-                const enteredToursIsValid = !isEmpty(enteredTours);
-                const enteredFoodIsValid = !isEmpty(enteredFood);
-
-                console.log(enteredDestinationIsValid);
-                
-                const newVacation = [{
-                    id: enteredDestination,
-                    destinationInputRef : enteredDestination,
-                    outdoorsInputRef : enteredOutdoors,
-                    toursInputRef: enteredTours,
-                    foodInputRef: enteredFood,
-                }]
-                setFormsInputValidity(newVacation);
-            }
-                  console.log(formsInputValidity);
-
-
-                const submitNewVacation = (event) => {
-                    event.preventDefault();
-                    const addVacation = vacations.concat(formsInputValidity)
-                        setVacations(addVacation)
-                    };
-                    console.log(vacations);
-                
-            
-                // if(formIsValid === enteredDestinationIsValid && enteredToursIsValid && enteredOutdoorsIsValid && enteredFoodIsValid){
-                //     setFormIsValid(true)
-                //     setVacations(
-                //         vacations.map((vacation) =>{
-                //             return{...vacation, vacations}
-                //         })
-                //     )
-                // } 
-            
-
-            
-
-                
                     
+                        const submitNewVacation = (event) => {
+                                event.preventDefault();
+                                const newVacations = {
+                                    id : destination,
+                                    destination,
+                                    outdoorsActivity, toursActivity, 
+                                    foodActivity
+                                }
+                                    console.log(newVacations)
+                            
+                                    addVacation(newVacations)
+                                       
+                            }
+                // const destinationControlClasses = `${classes.control} ${formsInputValidity  ?`` : classes.invalid}`
 
-                const destinationControlClasses = `${classes.control} ${formsInputValidity.destination ?`` : classes.invalid}`
+                // const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoorsActivity ?`` : classes.invalid}`
 
-                const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoors ?`` : classes.invalid}`
+                // const toursControlClasses = `${classes.control} ${formsInputValidity.tours ?`` : classes.invalid}`
 
-                const toursControlClasses = `${classes.control} ${formsInputValidity.tours ?`` : classes.invalid}`
+                // const foodControlClasses = `${classes.control} ${formsInputValidity.food ?`` : classes.invalid}`
 
-                const foodControlClasses = `${classes.control} ${formsInputValidity.food ?`` : classes.invalid}`
-                     
-                
              
             return (
-                <Fragment>
                     <form onSubmit={submitNewVacation}>
             <div className={classes.backgroundImage}>
-                    <div className={destinationControlClasses}>
+                    <div>
                 <label>DESTINATION</label>
                     <input 
-                     
+                     value={destination}
                     type="text"
-                    //  
-                    ref={destinationInputRef}
-                    //  onChange={destinationChangeHandler}
+                     onChange={(e) => setEnteredDestination(e.target.value)}
                     />  
-                    {!formsInputValidity.destination && <p className={classes.notValid}>See some place new, please enter a destination</p>}
+                    {/* {!formsInputValidity && <p className={classes.notValid}>See some place new, please enter a destination</p>} */}
                     </div>
                     
-                    <div className={outdoorsControlClasses}>
+                    <div>
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
-                    // 
-                    ref={outdoorsInputRef}
-                    // onChange={outdoorsChangeHandler}
+                    value={outdoorsActivity}
+                    onChange={(e)=> setOutdoors(e.target.value)}
                    />
-                   {!formsInputValidity.outdoors && <p className={classes.notValid}>Enjoy the outdoors, pick an activity</p>}
+                   {/* {!formsInputValidity && <p className={classes.notValid}>Enjoy the outdoors, pick an activity</p>} */}
                    </div>
                    
 
-                   <div className={toursControlClasses}>
+                   <div>
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
-                    // 
-                    ref={toursInputRef} 
-                    // onChange={toursChangeHandler}
+                    value={toursActivity}               
+                    onChange={(e) => setTours(e.target.value)}
                    />
-                   {!formsInputValidity.tours && <p className={classes.notValid}>Explore the destination, take a tour</p>}
+                   {/* {!formsInputValidity  && <p className={classes.notValid}>Explore the destination, take a tour</p>} */}
                    </div>
                    
-                   <div className={foodControlClasses}>
+                   <div>
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
-                    // 
-                    ref={foodInputRef}
-                    // onChange={foodChangeHandler}
+                    value={foodActivity}                    
+                    onChange={(e) => setFood(e.target.value)}
                    />
-                   {!formsInputValidity.food && <p className={classes.notValid}>Try a native dish, add a food activity</p>}
+                   {/* {!formsInputValidity && <p className={classes.notValid}>Try a native dish, add a food activity</p>} */}
                </div>
                
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
          */}
         
                 <div>
-                    <button type= "button" class="btn-primary" onClick={addToList} > ADD TO PLANNER </button>
+                    <button className="btn-primary"> ADD TO PLANNER </button>
                 </div>
     
         </div>
         </form>
-        </Fragment>
             )
         
         };

@@ -12,7 +12,7 @@ const Welcome = () => {
                         </li>
                     <li>
                     <NavLink activeClassName={classes.active}
-                    to="newVacation">New Vacation</NavLink>
+                    to="newVacationForm">New Vacation</NavLink>
                     </li>
                     <li>
                         <NavLink activeClassName={classes.active}

@@ -1,13 +1,12 @@
-.page{
+.page {
     background-image: url("/src/images/waterfalls.jfif");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
 }
 
-.title{
+.title {
     font-size: 60px;
     text-align: center;
     color: yellow;
@@ -17,11 +16,10 @@
     top: 100px;
 }
 
-.intro{
+.intro {
     font-size: 35px;
     text-align: center;
     color:yellow;
-    text-shadow: turquoise;
     position: relative;
     top: 80px;
 }

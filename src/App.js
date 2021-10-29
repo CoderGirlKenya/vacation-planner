@@ -1,37 +1,36 @@
 
 import React, { useState } from "react";
-import NewVacation from "./Components/NewVacation";
-import {INITIAL_VACATIONS} from "./Data/VacationList";
 import VacationItem from "./Data/VacationItem";
 import { Route, Redirect, BrowserRouter} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
-import { Fragment } from "react";
+import NewVacationForm from "./Components/NewVacationForm";
+
 import Intro from "./Data/Intro";
 
+import { GlobalProvider } from "./context/GlobalState";
 
+const App =()=>{
+  // const [vacations, setNewVacations] = useState([]);
+  // const addVacationHandler = (vacations) =>{
 
-const App =(props)=>{
-  const [vacations, setNewVacations] = useState(INITIAL_VACATIONS);
-  const addVacationHandler = (vacations) =>{
-
-    setNewVacations((prevVacations) =>{
-      const vacationsList=[vacations, ...prevVacations];
-      console.log(vacationsList)
-      return vacationsList;
-    });
+  //   setNewVacations((prevVacations) =>{
+  //     const vacationsList=[vacations, ...prevVacations];
+  //     console.log(vacationsList)
+  //     return vacationsList;
+  //   });
     
   
-  };
+
   
     return (
       <BrowserRouter>
-        
+        <GlobalProvider>
           <header>
       <Welcome/>
          </header>
         <main>
-        <Route path="/">
+        <Route path="/" exact>
         <Redirect to="/intro"/>
         </Route>
         <Route path="/intro">
@@ -40,27 +39,18 @@ const App =(props)=>{
         <Route path="/welcome">
         <Welcome />
         </Route>
-        <Route path="/newVacation">
-        <NewVacation item={vacations} onAddVacation={addVacationHandler} />
+        <Route path="/newVacationForm" exact>
+        <NewVacationForm/>
         </Route>
         <Route path="/vacationItem">
-        {vacations.map(vacation => (
-        <VacationItem 
-        key={vacation.destination}
-        id={vacation.destination}
-        destination={vacation.destination} 
-        outdoors={vacation.outdoorsActivity}
-        tours = {vacation.toursActivity}
-        food = {vacation.foodActivity}
-       /> 
-        ))}
+        <VacationItem/>
         </Route>
         <Route path="/necessities">
           <Necessities/>
         </Route>
         
         </main>
-      
+        </GlobalProvider>
         </BrowserRouter>
       )
     
