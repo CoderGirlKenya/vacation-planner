@@ -55,12 +55,5 @@ const App =()=>{
       )
     
 };
-//   return (
-//     <div>
-//       <h2>TRAVEL PLANNER</h2>
-//       <NewVacationForm items={vacations} addToPlanner={addNewVacationHandler}/>
-//       <Vacation items={vacations}></Vacation>
-//       <Necessities/>
-//     </div>
-//   );
+
 export default App;

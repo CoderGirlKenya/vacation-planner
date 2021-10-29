@@ -1,5 +1,6 @@
-import React, {useContext} from 'react';
+import React, {Fragment, useContext} from 'react';
 import { GlobalContext } from '../context/GlobalState';
+
 
 
 const Vacations = ({vacations}) => {
@@ -7,14 +8,18 @@ const Vacations = ({vacations}) => {
 
     return (
         
-            <div>
-                <label>DESIRED TRAVEL DESTINATION</label>
+            <Fragment>
+            
+                <ul>
+               <label>DESIRED TRAVEL DESTINATION</label>
                 <h1>{vacations.destination}</h1>
                 <li>{vacations.outdoorsActivity}</li>
                 <li>{vacations.toursActivity}</li>
                 <li>{vacations.foodActivity}</li>
                 <button onClick={() => deleteVacation(vacations.id)}>REMOVE ITEM</button>
-            </div>
+                </ul>
+            </Fragment>
+    
     
     )
 }
