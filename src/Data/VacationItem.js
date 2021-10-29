@@ -8,19 +8,12 @@ const VacationItem = (props) => {
 
   console.log(vacations);
     
-
-
-
-
      return (
-         <Fragment>
-             
-      
-                
+         <div>              
                 {vacations.map(vacation => (<Vacations key={vacation.id} vacations={vacation}
-                  />))}
-              
-        </Fragment>
+         />
+         ))}
+         </div>
         )
 
      }              

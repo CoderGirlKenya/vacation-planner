@@ -9,15 +9,14 @@ const Vacations = ({vacations}) => {
     return (
         
             <Fragment>
-            
-                <ul>
-               <label>DESIRED TRAVEL DESTINATION</label>
-                <h1>{vacations.destination}</h1>
-                <li>{vacations.outdoorsActivity}</li>
-                <li>{vacations.toursActivity}</li>
-                <li>{vacations.foodActivity}</li>
+                <section class="container">
+               <h2>DESIRED TRAVEL DESTINATION</h2>
+                <h3>{vacations.destination}</h3>
+                <li class='list-inline'>{vacations.outdoorsActivity}</li>
+                <li class='list-inline'>{vacations.toursActivity}</li>
+                <li class='list-inline'>{vacations.foodActivity}</li>
                 <button onClick={() => deleteVacation(vacations.id)}>REMOVE ITEM</button>
-                </ul>
+                </section>
             </Fragment>
     
     
