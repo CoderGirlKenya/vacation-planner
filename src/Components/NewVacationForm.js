@@ -1,4 +1,5 @@
 import React,{useState, useRef, useEffect, Fragment} from "react";
+import { INITIAL_VACATIONS } from "../Data/VacationList";
 import classes from "./NewVacationForm.module.css"
 
 // const getLocalStorage = () =>{
@@ -14,7 +15,7 @@ import classes from "./NewVacationForm.module.css"
 const isEmpty = value => value.trim() === '';
 
 const NewVacationForm = (props) => {
-    const [vacations, setVacations] = useState([]);
+    const [vacations, setVacations] = useState(INITIAL_VACATIONS);
         // const localData =localStorage.getItem('vacations');
         // console.log(localData);
         // return localData ? JSON.parse(localData):[];
@@ -24,18 +25,18 @@ const NewVacationForm = (props) => {
     //      localStorage.setItem('vacations', JSON.stringify(vacations))
     //  }, [vacations])
 
-    const [formIsValid, setFormIsValid] = useState(false)
+    const [formIsValid, setFormIsValid] = useState(false);
     const destinationInputRef = useRef(props.destination);
     const outdoorsInputRef = useRef(props.outdoors);
     const toursInputRef = useRef(props.tours);
     const foodInputRef = useRef(props.food);
 
-    const [formsInputValidity, setFormsInputValidity] = useState({
-        destination: true,
-        outdoors: true,
-        tours: true,
-        food: true,
-    });
+const [formsInputValidity, setFormsInputValidity] = useState({
+    destinationInputRef: '',
+    outdoorsInputRef: '',
+    toursInputRef: '',
+    foodInputRef: '',
+});
 
     
     // const [destination, setEnteredDestination] = useState('');
@@ -72,9 +73,9 @@ const NewVacationForm = (props) => {
                 
             
                
-            
-            const addToList = (event) => {
-                event.preventDefault();
+          const addToList = (event) => {
+            event.preventDefault();
+           
                 const enteredDestination = destinationInputRef.current.value;
                 const enteredOutdoors = outdoorsInputRef.current.value;
                 const enteredTours = toursInputRef.current.value;
@@ -91,24 +92,36 @@ const NewVacationForm = (props) => {
                 const enteredFoodIsValid = !isEmpty(enteredFood);
 
                 console.log(enteredDestinationIsValid);
-
-                setFormsInputValidity({
+                
+                const newVacation = [{
                     id: enteredDestination,
-                    destination: enteredDestinationIsValid,
-                    outdoorsActivity: enteredOutdoorsIsValid,
-                    toursActivity: enteredToursIsValid,
-                    foodActivity: enteredFoodIsValid,
-                });
-
-                if(formIsValid === enteredDestinationIsValid && enteredToursIsValid && enteredOutdoorsIsValid && enteredFoodIsValid){
-                    setFormIsValid(true)
-                    setVacations(
-                        vacations.map((vacation) =>{
-                            return{...vacation, vacations}
-                        })
-                    )
-                } 
+                    destinationInputRef : enteredDestination,
+                    outdoorsInputRef : enteredOutdoors,
+                    toursInputRef: enteredTours,
+                    foodInputRef: enteredFood,
+                }]
+                setFormsInputValidity(newVacation);
             }
+                  console.log(formsInputValidity);
+
+
+                const submitNewVacation = (event) => {
+                    event.preventDefault();
+                    const addVacation = vacations.concat(formsInputValidity)
+                        setVacations(addVacation)
+                    };
+                    console.log(vacations);
+                
+            
+                // if(formIsValid === enteredDestinationIsValid && enteredToursIsValid && enteredOutdoorsIsValid && enteredFoodIsValid){
+                //     setFormIsValid(true)
+                //     setVacations(
+                //         vacations.map((vacation) =>{
+                //             return{...vacation, vacations}
+                //         })
+                //     )
+                // } 
+            
 
             
 
@@ -122,31 +135,12 @@ const NewVacationForm = (props) => {
                 const toursControlClasses = `${classes.control} ${formsInputValidity.tours ?`` : classes.invalid}`
 
                 const foodControlClasses = `${classes.control} ${formsInputValidity.food ?`` : classes.invalid}`
-                // if (!formIsValid)
-                //     return 
+                     
                 
-                
-            
-            //    const vacationData = {
-            //                 id: destination,
-            //         destination: destination,
-            //            outdoorsActivity : outdoors,
-            //                 toursActivity: tours, 
-            //                 foodActivity: food,
-            //     }
-                
-                // props.onSaveVacation(vacationData)
-
-            
-            
-            //    setEnteredDestination('');
-            //    setOutdoors('');
-            //    setTours('');
-            //    setFood('');
-        
              
             return (
                 <Fragment>
+                    <form onSubmit={submitNewVacation}>
             <div className={classes.backgroundImage}>
                     <div className={destinationControlClasses}>
                 <label>DESTINATION</label>
@@ -202,6 +196,7 @@ const NewVacationForm = (props) => {
                 </div>
     
         </div>
+        </form>
         </Fragment>
             )
         

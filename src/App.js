@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import NewVacation from "./Components/NewVacation";
 import {INITIAL_VACATIONS} from "./Data/VacationList";
 import VacationItem from "./Data/VacationItem";
-import { Route, Redirect} from "react-router-dom";
+import { Route, Redirect, BrowserRouter} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
 import { Fragment } from "react";
 import Intro from "./Data/Intro";
+
 
 
 const App =(props)=>{
@@ -24,7 +25,8 @@ const App =(props)=>{
   };
   
     return (
-        <Fragment>
+      <BrowserRouter>
+        
           <header>
       <Welcome/>
          </header>
@@ -58,8 +60,9 @@ const App =(props)=>{
         </Route>
         
         </main>
-        </Fragment>
-    )
+      
+        </BrowserRouter>
+      )
     
 };
 //   return (
