@@ -2,10 +2,13 @@ import React,{useState, useContext} from "react";
 import classes from "./NewVacationForm.module.css";
 import { GlobalContext } from '../context/GlobalState';
 
-
+import { useHistory } from "react-router";
 const isEmpty = value => value.trim() === '';
 
 const NewVacationForm = () => {
+    const history = useHistory();
+
+    
     const [destination, setEnteredDestination] = useState('');
 
     const [outdoorsActivity, setOutdoors] = useState('');
@@ -30,8 +33,15 @@ const NewVacationForm = () => {
                                     console.log(newVacations)
                             
                                     addVacation(newVacations)
-                                       
+
+                                    setEnteredDestination('');
+                                    setOutdoors('');
+                                    setTours('');
+                                    setFood('');    
                             }
+
+
+
                 // const destinationControlClasses = `${classes.control} ${formsInputValidity  ?`` : classes.invalid}`
 
                 // const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoorsActivity ?`` : classes.invalid}`
@@ -89,7 +99,7 @@ const NewVacationForm = () => {
          */}
         
                 <div>
-                    <button className="btn-primary"> ADD TO PLANNER </button>
+                    <button className="btn-primary" type="button" onClick={() => history.push('/vacationItem', {state: 'vacations'})}> ADD TO PLANNER </button>
                 </div>
     
         </div>

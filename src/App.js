@@ -36,7 +36,7 @@ const App =()=>{
         <Route path="/intro">
         <Intro/>
         </Route>
-        <Route path="/vacations" exact>
+        <Route path="/vacations">
         <Redirect to="/vacationItem"/>
         </Route>
         <Route path="/welcome">
