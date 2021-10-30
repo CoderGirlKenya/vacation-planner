@@ -33,11 +33,11 @@ const App =()=>{
         <Route path="/" exact>
           <Intro/>
         </Route>
-        <Route path="/vacations" exact>
-        <Redirect to="/intro"/>
-        </Route>
         <Route path="/intro">
         <Intro/>
+        </Route>
+        <Route path="/vacations" exact>
+        <Redirect to="/vacationItem"/>
         </Route>
         <Route path="/welcome">
         <Welcome />
