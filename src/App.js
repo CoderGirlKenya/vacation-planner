@@ -27,10 +27,13 @@ const App =()=>{
       <BrowserRouter>
         <GlobalProvider>
           <header>
-      <Welcome/>
+        <Welcome/>
          </header>
         <main>
         <Route path="/" exact>
+          <Intro/>
+        </Route>
+        <Route path="/vacations" exact>
         <Redirect to="/intro"/>
         </Route>
         <Route path="/intro">
