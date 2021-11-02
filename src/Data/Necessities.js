@@ -47,7 +47,7 @@ const Necessities=()=>{
         <Fragment>
             <section>
             {items.map(need => (
-               <li className={classes.necessities}>{need.item}
+               <li  key ={need.item} className={classes.necessities}>{need.item}
                     <input type="checkbox" value={need.item} id={need.item}/>
                </li>
             ))}

@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import { Fragment } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import Vacations from "../Components/Vacations";
 

@@ -1,6 +1,8 @@
-export default (state, action) =>{
+const vacationReducer = (state, action) =>{
     switch(action.type){
         case "DELETE_VACATION":
+            console.log(state);
+            console.log(action);
             return {
                 ...state,
                 vacations: state.vacations.filter(vacation => vacation.id !== action.payload)
@@ -15,3 +17,5 @@ export default (state, action) =>{
                 return state ;
         }       
     }
+
+export default vacationReducer;
