@@ -19,22 +19,19 @@ const NewVacationForm = () => {
 
     const {addVacation} = useContext(GlobalContext);
     
-    const [formsInputValidity, setFormsInputValidity] = useState({
-        destination : isEmpty(destination),
-        outdoorsActivity:isEmpty(outdoorsActivity),
-        toursActivity:isEmpty(toursActivity),
-        foodActivity: isEmpty(foodActivity),
-    });
+    // const [formsInputValidity, setFormsInputValidity] = useState({
+    //     destination : isEmpty(destination),
+    //     outdoorsActivity:isEmpty(outdoorsActivity),
+    //     toursActivity:isEmpty(toursActivity),
+    //     foodActivity: isEmpty(foodActivity),
+    // });
 
     const validDestination = !isEmpty(destination);
     const validOutdoorsActivity = !isEmpty(outdoorsActivity);
     const validToursActivity = !isEmpty(toursActivity)
     const validFoodActivity = !isEmpty(foodActivity)
 
-    
-
-
-                            
+    const [formsInputValidity, setFormsInputValidity] = useState();
 
                                 const clickHandler = (event) => {
                                         event.preventDefault();
@@ -47,13 +44,13 @@ const NewVacationForm = () => {
                                             console.log(newVacations)
                                     
                                             addVacation(newVacations)
-                                            history.push("/vacations")
+                                            history.push("/vacationItem")
                                       
                                     }
 
                                     
 
-                // const destinationControlClasses = `${classes.control} ${formsInputValidity  ?`` : classes.invalid}`
+                const destinationControlClasses = `${classes.control} ${formsInputValidity  ?`` : classes.invalid}`
 
                 // const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoorsActivity ?`` : classes.invalid}`
 
@@ -77,7 +74,7 @@ const NewVacationForm = () => {
 
                      onChange={(e) => setEnteredDestination(e.target.value)}
                     />  
-                    {/* {!formsInputValidity && <p className={classes.notValid}>See some place new, please enter a destination</p>} */}
+                    {!formsInputValidity && <p className={classes.notValid}>See some place new, please enter a destination</p>}
                     </div>
                     
                     <div>
