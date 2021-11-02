@@ -1,23 +1,19 @@
 .necessities{
     background-color: yellow;
     margin-top: 0pt;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
     margin: 1rem 0;
     border-radius: 12px;
-    fill: black;
     overflow: hidden;
     
 }
 
 .header {
     text-align: center;
-    text-underline-position: below;
     background-color: magenta;
     margin-top: 0pt;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     justify-content: center;
     align-items: center;
     padding: 0.5rem;

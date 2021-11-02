@@ -3,10 +3,10 @@
   }
 
 .control label {
-    font-weight: bold;
+    font-weight: bolder;
     margin-bottom: 0.25rem;
     display: block;
-    
+    text-decoration: magenta;
 }
   
 .control input {

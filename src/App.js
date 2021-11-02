@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState } from "react";
 import VacationItem from "./Data/VacationItem";
-import { Route, Redirect, BrowserRouter} from "react-router-dom";
+import { Route, Redirect, BrowserRouter, Switch} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
 import NewVacationForm from "./Components/NewVacationForm";
@@ -44,27 +44,11 @@ const [loading, setloading] = useState(true);
     if(error){
       return 'error'
     }
-      console.log(data);
-      const vacations = data.map(item =>{
-        console.log(item);
-        console.log(item.id);
-        console.log(item.outdoorsActivity)
-      })
-
-  // const [vacations, setNewVacations] = useState([]);
-  // const addVacationHandler = (vacations) =>{
-
-  //   setNewVacations((prevVacations) =>{
-  //     const vacationsList=[vacations, ...prevVacations];
-  //     console.log(vacationsList)
-  //     return vacationsList;
-  //   });
-    
-  
-
+      
   
     return (
       <BrowserRouter>
+      <Switch>
         <GlobalProvider value={{data, loading, error}}>
           <header>
         <Welcome/>
@@ -76,13 +60,10 @@ const [loading, setloading] = useState(true);
         <Route path="/intro">
         <Intro/>
         </Route>
-        <Route path="/vacations">
-        <Redirect to="/vacationItem"/>
-        </Route>
         <Route path="/welcome">
         <Welcome />
         </Route>
-        <Route path="/newVacationForm" exact>
+        <Route path="/newVacationForm">
         <NewVacationForm/>
         </Route>
         <Route path="/vacationItem">
@@ -94,6 +75,7 @@ const [loading, setloading] = useState(true);
         
         </main>
         </GlobalProvider>
+        </Switch>
         </BrowserRouter>
       )
     
