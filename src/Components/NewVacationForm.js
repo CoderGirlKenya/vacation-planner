@@ -21,9 +21,14 @@ const NewVacationForm = () => {
     
     const [formsInputValidity, setFormsInputValidity] = useState(false);
 
-                    
+    const validDestination = !isEmpty(destination);
+    const validOutdoorsActivity = !isEmpty(outdoorsActivity);
+    const validToursActivity = !isEmpty(toursActivity)
+    const validFoodActivity = !isEmpty(foodActivity)
+    
                         const submitNewVacation = (event) => {
                                 event.preventDefault();
+                                
                                 const newVacations = {
                                     id : destination,
                                     destination,
@@ -33,15 +38,15 @@ const NewVacationForm = () => {
                                     console.log(newVacations)
                             
                                     addVacation(newVacations)
-
-                                    setEnteredDestination('');
-                                    setOutdoors('');
-                                    setTours('');
-                                    setFood('');    
                             }
 
 
-
+                                const clickHandler = (event) => {
+                                    if(validDestination && validOutdoorsActivity && validToursActivity && validFoodActivity){
+                                        setFormsInputValidity()
+                                        console.log(formsInputValidity)
+                                    }
+                                }
                 // const destinationControlClasses = `${classes.control} ${formsInputValidity  ?`` : classes.invalid}`
 
                 // const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoorsActivity ?`` : classes.invalid}`
@@ -99,7 +104,7 @@ const NewVacationForm = () => {
          */}
         
                 <div>
-                    <button className="btn-primary" type="button" onClick={() => history.push('/vacationItem', {state: 'vacations'})}> ADD TO PLANNER </button>
+                    <button className="btn-primary" type="submit" onClick={clickHandler}> ADD TO PLANNER </button>
                 </div>
     
         </div>
