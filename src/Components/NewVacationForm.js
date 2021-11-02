@@ -31,7 +31,8 @@ const NewVacationForm = () => {
     const validToursActivity = !isEmpty(toursActivity)
     const validFoodActivity = !isEmpty(foodActivity)
 
-    const [formsInputValidity, setFormsInputValidity] = useState();
+   
+
 
                                 const clickHandler = (event) => {
                                         event.preventDefault();
@@ -42,70 +43,79 @@ const NewVacationForm = () => {
                                             foodActivity
                                         }
                                             console.log(newVacations)
+                                            if (validDestination && validOutdoorsActivity && validToursActivity && validFoodActivity){
+
                                     
                                             addVacation(newVacations)
                                             history.push("/vacationItem")
+                                        
+                                            setEnteredDestination('');
+                                            setOutdoors('');
+                                            setTours('');
+                                            setFood('');
                                       
+                                    } else {
+                                        return
                                     }
+
+                                }
 
                                     
 
-                const destinationControlClasses = `${classes.control} ${formsInputValidity  ?`` : classes.invalid}`
+                const destinationControlClasses = `${classes.control} ${validDestination  ?`` : classes.invalid}`
 
-                // const outdoorsControlClasses = `${classes.control} ${formsInputValidity.outdoorsActivity ?`` : classes.invalid}`
+                const outdoorsControlClasses = `${classes.control} ${validOutdoorsActivity ?`` : classes.invalid}`
+                           
+                const tourControlClasses = `${classes.control} ${validToursActivity  ?`` : classes.invalid}`
 
-                // const toursControlClasses = `${classes.control} ${formsInputValidity.tours ?`` : classes.invalid}`
-
-                // const foodControlClasses = `${classes.control} ${formsInputValidity.food ?`` : classes.invalid}`
-                            // setFormsInputValidity(false);
-                            //     setEnteredDestination('');
-                            //     setOutdoors('');
-                            //     setTours('');
-                            //     setFood('');
+                const foodControlClasses = `${classes.control} ${validFoodActivity  ?`` : classes.invalid}`
              
             return (
                     <form>
             <div className={classes.backgroundImage}>
-                    <div>
+                    <div className={destinationControlClasses}>
                 <label>DESTINATION</label>
                     <input 
                      value={destination}
                     type="text"
-
+                    placeholder='See something new'
                      onChange={(e) => setEnteredDestination(e.target.value)}
                     />  
-                    {!formsInputValidity && <p className={classes.notValid}>See some place new, please enter a destination</p>}
+                     {!validDestination && <p className={classes.notValid}> Enter a destination</p>}
                     </div>
                     
-                    <div>
+                    <div className={outdoorsControlClasses}>
                     <label>OUTDOORS ACTIVITY</label>
                     <input
                      type = "text" 
                     value={outdoorsActivity}
                     onChange={(e)=> setOutdoors(e.target.value)}
+                    placeholder='Enjoy the outdoors'
                    />
-                   {/* {!formsInputValidity && <p className={classes.notValid}>Enjoy the outdoors, pick an activity</p>} */}
+                   {!validOutdoorsActivity && <p className={classes.notValid}>Pick an outdoor activity</p>}
                    </div>
                    
 
-                   <div>
+                   <div className={tourControlClasses}>
                    <label>TOUR ACTIVITY</label>
                     <input
                      type = "text" 
-                    value={toursActivity}               
+                    value={toursActivity}
+                    placeholder='Explore new territory'               
                     onChange={(e) => setTours(e.target.value)}
                    />
-                   {/* {!formsInputValidity  && <p className={classes.notValid}>Explore the destination, take a tour</p>} */}
+                    {!validToursActivity  && <p className={classes.notValid}>Explore the destination, take a tour</p>}  
                    </div>
                    
-                   <div>
+                   <div className={foodControlClasses}>
                    <label>FOOD ACTIVITY</label>
                     <input
                      type = "text" 
-                    value={foodActivity}                    
+                    value={foodActivity}   
+                    placeholder='Eat something different'                 
                     onChange={(e) => setFood(e.target.value)}
                    />
-                   {/* {!formsInputValidity && <p className={classes.notValid}>Try a native dish, add a food activity</p>} */}
+                   {!validFoodActivity && <p className={classes.notValid}>Try a native dish, add a food activity: </p>} 
                </div>
                
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
