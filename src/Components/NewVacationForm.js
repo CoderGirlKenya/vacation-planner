@@ -7,7 +7,6 @@ const isEmpty = value => value.trim() === '';
 
 const NewVacationForm = () => {
     const history = useHistory();
-
     
     const [destination, setEnteredDestination] = useState('');
 
@@ -18,13 +17,6 @@ const NewVacationForm = () => {
     const [foodActivity, setFood] = useState('');
 
     const {addVacation} = useContext(GlobalContext);
-    
-    // const [formsInputValidity, setFormsInputValidity] = useState({
-    //     destination : isEmpty(destination),
-    //     outdoorsActivity:isEmpty(outdoorsActivity),
-    //     toursActivity:isEmpty(toursActivity),
-    //     foodActivity: isEmpty(foodActivity),
-    // });
 
     const validDestination = !isEmpty(destination);
     const validOutdoorsActivity = !isEmpty(outdoorsActivity);

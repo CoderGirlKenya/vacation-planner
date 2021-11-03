@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState } from "react";
 import VacationItem from "./Data/VacationItem";
-import { Route, BrowserRouter, Switch} from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
 import NewVacationForm from "./Components/NewVacationForm";
@@ -38,7 +38,7 @@ const [loading, setloading] = useState(true);
       })
     }, [])
     if(loading){
-      return 'Is loading'
+      return 'Your vacation planner is loading'
     }
     
     if(error){
@@ -47,7 +47,7 @@ const [loading, setloading] = useState(true);
       
   
     return (
-      <BrowserRouter>
+      <Router>
       <Switch>
         <GlobalProvider value={{data, loading, error}}>
           <header>
@@ -76,7 +76,7 @@ const [loading, setloading] = useState(true);
         </main>
         </GlobalProvider>
         </Switch>
-        </BrowserRouter>
+        </Router>
       )
     
 };
