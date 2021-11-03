@@ -17,6 +17,5 @@ import Vacations from "./Vacations";
 
      const buttonElement = screen.getByText('REMOVE ITEM');
        expect (buttonElement).toBeInTheDocument(); 
-    // const vacationItemsElement = screen.getAllByRole('vacationItems')
-    // expect(vacationItemsElement).not.toHaveLength(0);
+
     })

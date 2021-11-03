@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState } from "react";
 import VacationItem from "./Data/VacationItem";
-import { Route, Redirect, BrowserRouter, Switch} from "react-router-dom";
+import { Route, BrowserRouter, Switch} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
 import NewVacationForm from "./Components/NewVacationForm";

@@ -122,7 +122,7 @@ const NewVacationForm = () => {
          */}
         
                 <div>
-                    <button type="submit" onClick={clickHandler} type="button"> ADD TO PLANNER </button>
+                    <button type="submit" onClick={clickHandler}> ADD TO PLANNER </button>
                 </div>
     
         </div>
