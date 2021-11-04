@@ -23,11 +23,19 @@ const NewVacationForm = () => {
     const validToursActivity = !isEmpty(toursActivity)
     const validFoodActivity = !isEmpty(foodActivity)
 
-   
+    const [touchDestination, setTouchDestination] = useState (false);
+    const [touchOutdoorsActivity, setTouchOutdoorsActivity] =useState(false);
+    const [touchToursActivity, setTouchToursActivity] = useState (false);
+    const [touchFoodActivity, setTouchedFoodActivity] = useState (false);
 
 
                                 const clickHandler = (event) => {
                                         event.preventDefault();
+                                        setTouchDestination(true);
+                                        setTouchOutdoorsActivity(true);
+                                        setTouchToursActivity(true);
+                                        setTouchedFoodActivity(true);
+
                                         const newVacations = {
                                             id : destination,
                                             destination,
@@ -73,7 +81,7 @@ const NewVacationForm = () => {
                     placeholder='See something new'
                      onChange={(e) => setEnteredDestination(e.target.value)}
                     />  
-                     {!validDestination && <p className={classes.notValid}> Enter a destination</p>}
+                     {!validDestination && touchDestination && <p className={classes.notValid}> Enter a destination</p>}
                     </div>
                     
                     <div className={outdoorsControlClasses}>
@@ -84,7 +92,7 @@ const NewVacationForm = () => {
                     onChange={(e)=> setOutdoors(e.target.value)}
                     placeholder='Enjoy the outdoors'
                    />
-                   {!validOutdoorsActivity && <p className={classes.notValid}>Pick an outdoor activity</p>}
+                   {!validOutdoorsActivity && touchOutdoorsActivity && <p className={classes.notValid}>Pick an outdoor activity</p>}
                    </div>
                    
 
@@ -96,7 +104,7 @@ const NewVacationForm = () => {
                     placeholder='Explore new territory'               
                     onChange={(e) => setTours(e.target.value)}
                    />
-                    {!validToursActivity  && <p className={classes.notValid}>Explore the destination, take a tour</p>}  
+                    {!validToursActivity  && touchToursActivity && <p className={classes.notValid}>Explore the destination, take a tour</p>}  
                    </div>
                    
                    <div className={foodControlClasses}>
@@ -107,7 +115,7 @@ const NewVacationForm = () => {
                     placeholder='Eat something different'                 
                     onChange={(e) => setFood(e.target.value)}
                    />
-                   {!validFoodActivity && <p className={classes.notValid}>Try a native dish, add a food activity: </p>} 
+                   {!validFoodActivity && touchFoodActivity && <p className={classes.notValid}>Try a native dish, add a food activity: </p>} 
                </div>
                
                 {/* ={()=>props.onSaveVacation(props.vacationListHandler)}
