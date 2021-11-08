@@ -61,7 +61,7 @@ const Necessities=()=>{
             <section>
              {items.map(need => ( 
                <li  key={need.item} className={classes.necessities}>{need.item}
-                    <button  onClick={() => removeItem(need.id)} type="checkbox"> Delete Item</button>
+                    <button  onClick={() => removeItem(need.id)} type="checkbox">Item Packed</button>
                </li>
             ))} 
      
