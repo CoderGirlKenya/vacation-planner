@@ -6,7 +6,7 @@
     font-weight: bolder;
     margin-bottom: 0.25rem;
     display: block;
-    text-decoration: magenta;
+    color: yellow;
 }
   
 .control input {
@@ -15,7 +15,7 @@
     border-radius: 4px;
     width: 20rem;
     max-width: 100%;
-    
+    color: magenta;
   }
 
 

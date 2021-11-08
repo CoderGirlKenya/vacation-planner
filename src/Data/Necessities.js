@@ -1,56 +1,69 @@
-import { Fragment } from "react";
+import { Fragment, useState} from "react";
 import classes from "../Data/Necessities.module.css";
+
 
 const Necessities=()=>{
 
-    const items = [
+    const [items, setItems] = useState(
+    [
        {
+           id: "Undergarments",
            item: "Undergarments",
-           isChecked: false,
        },
        {
+           id: "Outfits",
            item: "Outfits",
-           isChecked: false,
        },
        {
+           id: "Shoes",
            item: "Shoes",
-           isChecked: false,
        },
        {
+           id: "Accessories",
            item: "Accessories",
-           isChecked: false,
        },
        {
-        item: "Hair Products",
-        isChecked: false,    
+        id: "Hair Products",
+        item: "Hair Products",    
        },
        {
+           id: "Hygiene Products", 
            item: "Hygiene Products",
-           isChecked: false,
        },
        {
+           id: "Medication",
            item: "Medication",
-           isChecked: false,
        },
        {
+           id: "Travel Documents",
            item: "Travel Documents",
-           isChecked: false,
        },
        {
+           id: "Dog Sitter",
            item: "Dog Sitter",
-           isChecked: false,
        }
     ]
+    )
+
+    const checkedItems = [];
+
+    const removeItem = (event, id) => {
+     items.splice(id, 1);
+     setItems(items.map(need =>{
+         //console.log(need)
+            return need
+     }))
+    }
 
                 
     return(
         <Fragment>
             <section>
-            {items.map(need => (
-               <li  key ={need.item} className={classes.necessities}>{need.item}
-                    <input type="checkbox" value={need.item} id={need.item}/>
+             {items.map(need => ( 
+               <li  key={need.item} className={classes.necessities}>{need.item}
+                    <button  onClick={() => removeItem(need.id)} type="checkbox"> Delete Item</button>
                </li>
-            ))}
+            ))} 
      
             </section>
             {/* <ul className={classes.header}> NECESSITIES

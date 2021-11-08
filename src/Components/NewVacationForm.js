@@ -62,13 +62,13 @@ const NewVacationForm = () => {
 
                                     
 
-                const destinationControlClasses = `${classes.control} ${validDestination  ?`` : classes.invalid}`
+                const destinationControlClasses = validDestination  ? classes.invalid : classes.control;
 
-                const outdoorsControlClasses = `${classes.control} ${validOutdoorsActivity ?`` : classes.invalid}`
+                const outdoorsControlClasses = `${classes.control} ${!validOutdoorsActivity ?`` : classes.invalid}`
                            
-                const tourControlClasses = `${classes.control} ${validToursActivity  ?`` : classes.invalid}`
+                const tourControlClasses = `${classes.control} ${!validToursActivity  ?`` : classes.invalid}`
 
-                const foodControlClasses = `${classes.control} ${validFoodActivity  ?`` : classes.invalid}`
+                const foodControlClasses = `${classes.control} ${!validFoodActivity  ?`` : classes.invalid}`
              
             return (
                     <form>
