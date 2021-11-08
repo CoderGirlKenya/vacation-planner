@@ -1,4 +1,4 @@
-import React,{useState, useContext} from "react";
+import React,{useState, useContext, Fragment} from "react";
 import classes from "./NewVacationForm.module.css";
 import { GlobalContext } from '../context/GlobalState';
 import { useHistory } from "react-router-dom";
@@ -71,7 +71,7 @@ const NewVacationForm = () => {
                 const foodControlClasses = `${classes.control} ${!validFoodActivity  ?`` : classes.invalid}`
              
             return (
-                    <form>
+                <Fragment>
             <div className={classes.backgroundImage}>
                     <div className={destinationControlClasses}>
                 <label>DESTINATION</label>
@@ -126,7 +126,7 @@ const NewVacationForm = () => {
                 </div>
     
         </div>
-        </form>
+        </Fragment>
             )
         
         };

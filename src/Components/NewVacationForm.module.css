@@ -32,12 +32,14 @@
   .backgroundImage {
     background-image: url("/src/images/night-palm-trees.jpg");
     background-repeat: none;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
+   background-size: cover;
+    height: 87vh;
+    width: 100vw;
     overflow: hidden;
-    scroll-behavior: auto;
-    
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 5px;
   }
 
   .notValid{
