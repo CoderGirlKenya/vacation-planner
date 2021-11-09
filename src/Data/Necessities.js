@@ -44,17 +44,11 @@ const Necessities=()=>{
        }
     ]
     )
-
-    const checkedItems = [];
-
-    const removeItem = (event, id) => {
-     items.splice(id, 1);
-     setItems(items.map(need =>{
-         //console.log(need)
-            return need
-     }))
+    const removeItem = (id) => {
+        const newList = items.filter(item => item.id !== id)
+     
+        setItems(newList);
     }
-
                 
     return(
         <Fragment>
@@ -66,17 +60,6 @@ const Necessities=()=>{
             ))} 
      
             </section>
-            {/* <ul className={classes.header}> NECESSITIES
-                <li className={classes.necessities}>Undergarments<input type = "checkbox"></input></li>
-                <li  className={classes.necessities}>Outfits<input type = "checkbox"></input></li>
-                <li  className={classes.necessities}>Shoes<input type = "checkbox"></input></li>
-                <li className={classes.necessities} >Accessories<input type = "checkbox"></input></li>
-                <li className={classes.necessities} >Hair Products<input type = "checkbox"></input></li>
-                <li  className={classes.necessities}>Hygiene Products<input type = "checkbox"></input></li>
-                <li className={classes.necessities} >Medication<input type = "checkbox"></input></li>      
-                <li  className={classes.necessities}>Travel Documents<input type = "checkbox" ></input></li>
-                <li className={classes.necessities} >Dog Sitter<input type = "checkbox"></input></li>
-            </ul> */}
         </Fragment>
     )
 }

@@ -72,8 +72,7 @@ const [loading, setloading] = useState(true);
         <Route path="/necessities">
           <Necessities/>
         </Route>
-        
-        </main>
+         </main>
         </GlobalProvider>
         </Switch>
         </Router>
