@@ -6,10 +6,14 @@ const Welcome = () => {
         <header className={classes.header}>
             <nav>
                 <ul>
-                    <li>
+                   <li>
                         <NavLink activeClassName={classes.active}
                         to='intro'>HomePage</NavLink>
-                        </li>
+                   </li>
+                   <li>
+                        <NavLink 
+                        to="renderapi">Travel Advisor</NavLink>
+                    </li>
                     <li>
                     <NavLink activeClassName={classes.active}
                     to="newVacationForm">New Vacation</NavLink>

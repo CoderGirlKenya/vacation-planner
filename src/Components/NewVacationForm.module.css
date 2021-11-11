@@ -31,13 +31,10 @@
 
   .backgroundImage {
     background-image: url("/src/images/night-palm-trees.jpg");
-    background-repeat: none;
    background-size: cover;
     height: 87vh;
     width: 100vw;
     overflow: hidden;
-    justify-content: center;
-    align-items: center;
     padding: 0.5rem;
     border-radius: 5px;
   }

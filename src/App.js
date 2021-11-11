@@ -5,9 +5,8 @@ import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Welcome from "./Data/Welcome";
 import Necessities from "./Data/Necessities";
 import NewVacationForm from "./Components/NewVacationForm";
-
+import RenderApi from "./MapApi/RenderApi"; 
 import Intro from "./Data/Intro";
-
 import { GlobalProvider } from "./context/GlobalState";
 
 const App =()=>{
@@ -62,6 +61,9 @@ const [loading, setloading] = useState(true);
         </Route>
         <Route path="/welcome">
         <Welcome />
+        </Route>
+        <Route path="/renderapi">
+        <RenderApi/>
         </Route>
         <Route path="/newVacationForm">
         <NewVacationForm/>
