@@ -1,13 +1,15 @@
 
-import React, {useEffect, useState } from "react";
-import VacationItem from "./Data/VacationItem";
+import React, {useEffect, useState, Suspense } from "react";
 import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Welcome from "./Data/Welcome";
-import Necessities from "./Data/Necessities";
-import NewVacationForm from "./Components/NewVacationForm";
-import RenderApi from "./MapApi/RenderApi"; 
 import Intro from "./Data/Intro";
 import { GlobalProvider } from "./context/GlobalState";
+
+const RenderApi = React.lazy(() => import('./MapApi/RenderApi'));
+const NewVacationForm = React.lazy(() => import('./Components/NewVacationForm'));
+const VacationItem = React.lazy(() => import('./Data/VacationItem'));
+const Necessities = React.lazy(() => import('./Data/Necessities'));
+
 
 const App =()=>{
 const [data, setData] = useState();
@@ -62,6 +64,7 @@ const [loading, setloading] = useState(true);
         <Route path="/welcome">
         <Welcome />
         </Route>
+        <Suspense fallback={<p>Loading.....</p>}>
         <Route path="/renderapi">
         <RenderApi/>
         </Route>
@@ -74,6 +77,7 @@ const [loading, setloading] = useState(true);
         <Route path="/necessities">
           <Necessities/>
         </Route>
+        </Suspense>
          </main>
         </GlobalProvider>
         </Switch>
