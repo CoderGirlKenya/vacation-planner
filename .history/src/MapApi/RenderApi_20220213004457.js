@@ -21,11 +21,11 @@ const RenderApi = () => {
       setCoords({ lat: latitude, lng: longitude });
     });
   }, []);
-  useEffect(() => {
+  useEffect((places) => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
     setFilteredPlaces(filtered);
   }, [rating, places]);
-  useEffect(() => {
+  useEffect() => {
     if (bounds) {
       setIsLoading(true);
       getWeatherData(coords.lat, coords.lng)

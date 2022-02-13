@@ -1,4 +1,4 @@
-export const MAP_STYLES = [
+export default  [
     {
       featureType: 'all',
       elementType: 'all',

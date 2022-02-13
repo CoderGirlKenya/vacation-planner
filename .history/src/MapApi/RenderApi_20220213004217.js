@@ -21,14 +21,14 @@ const RenderApi = () => {
       setCoords({ lat: latitude, lng: longitude });
     });
   }, []);
-  useEffect(() => {
+  useEffect((places) => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
     setFilteredPlaces(filtered);
   }, [rating, places]);
-  useEffect(() => {
+  useEffect(coords.lat, coords.lng) => {
     if (bounds) {
       setIsLoading(true);
-      getWeatherData(coords.lat, coords.lng)
+      getWeatherData((coords.lat, coords.lng)
         .then((data) => setWeatherData(data));
       getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {

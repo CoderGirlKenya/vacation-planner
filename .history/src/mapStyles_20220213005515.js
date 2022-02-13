@@ -1,4 +1,4 @@
-export const MAP_STYLES = [
+export dconst MAP_STYLES = [
     {
       featureType: 'all',
       elementType: 'all',

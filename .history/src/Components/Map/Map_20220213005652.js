@@ -16,7 +16,7 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
         center={coords}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
-        options={{ disableDefaultUI: true, zoomControl: true, styles: {MAP_STYLES} }}
+        options={{ disableDefaultUI: true, zoomControl: true, styles: {} }}
         onChange={(e) => {
           setCoords({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });

@@ -1,4 +1,4 @@
-export const MAP_STYLES = [
+MAP_STYLES [
     {
       featureType: 'all',
       elementType: 'all',
@@ -98,5 +98,5 @@ export const MAP_STYLES = [
         },
       ],
     },
-  ];
+  ]
   

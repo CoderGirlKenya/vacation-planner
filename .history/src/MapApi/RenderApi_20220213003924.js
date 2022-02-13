@@ -16,15 +16,15 @@ const RenderApi = () => {
   const [autocomplete, setAutocomplete] = useState(null);
   const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
+  useEffect((coords.lat, coords.lng) => {
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
       setCoords({ lat: latitude, lng: longitude });
     });
-  }, []);
+  }, [coords.lat, coords.lng]);
   useEffect(() => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
     setFilteredPlaces(filtered);
-  }, [rating, places]);
+  }, [rating]);
   useEffect(() => {
     if (bounds) {
       setIsLoading(true);
@@ -38,7 +38,7 @@ const RenderApi = () => {
           setIsLoading(false);
         });
     }
-  }, [bounds, type, coords.lat, coords.lng]);
+  }, [bounds, type]);
   const onLoad = (autoC) => setAutocomplete(autoC);
   const onPlaceChanged = () => {
     const lat = autocomplete.getPlace().geometry.location.lat();

@@ -21,10 +21,10 @@ const RenderApi = () => {
       setCoords({ lat: latitude, lng: longitude });
     });
   }, []);
-  useEffect(() => {
+  useEffect((places) => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
     setFilteredPlaces(filtered);
-  }, [rating, places]);
+  }, [rating]);
   useEffect(() => {
     if (bounds) {
       setIsLoading(true);
@@ -38,7 +38,7 @@ const RenderApi = () => {
           setIsLoading(false);
         });
     }
-  }, [bounds, type, coords.lat, coords.lng]);
+  }, [bounds, type, places]);
   const onLoad = (autoC) => setAutocomplete(autoC);
   const onPlaceChanged = () => {
     const lat = autocomplete.getPlace().geometry.location.lat();

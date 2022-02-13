@@ -24,7 +24,7 @@ const RenderApi = () => {
   useEffect(() => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
     setFilteredPlaces(filtered);
-  }, [rating, places]);
+  }, [rating]);
   useEffect(() => {
     if (bounds) {
       setIsLoading(true);
