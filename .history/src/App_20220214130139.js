@@ -5,10 +5,9 @@ import Welcome from "./Data/Welcome";
 import Intro from "./Data/Intro";
 import { GlobalProvider } from "./context/GlobalState";
 
-//Lazy loading return a promise which is a default exported component
 //automatically loads the bundle containing component when it is first rendered
 //Must be rendered inside Suspense component which allows fallback actions.
-// Fallbacks renders any react element while the component loads
+// Fallbacks render any react element while the component loads
 //May want to add error boundaries to allow other components to load if one fails
 
 const RenderApi = React.lazy(() => import('./MapApi/RenderApi'));
@@ -26,7 +25,7 @@ const [loading, setloading] = useState(true);
 console.log(data);
 //UseEffect - function that handles actions when something affects component
 //allows other component functions to run 
-//load json data from json bin api to display dynamically via VacationItem component
+//load json data from json bin api
     useEffect(() => {
       //fetch sends a request to endpoint as argument and returns a promise(response)
       //asychronous does not interrupt other functions in component
@@ -72,7 +71,7 @@ console.log(data);
     }
 
     
-      //make state variables global variables
+      
   
     return (
       <Router>

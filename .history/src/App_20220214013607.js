@@ -5,11 +5,10 @@ import Welcome from "./Data/Welcome";
 import Intro from "./Data/Intro";
 import { GlobalProvider } from "./context/GlobalState";
 
-//Lazy loading return a promise which is a default exported component
 //automatically loads the bundle containing component when it is first rendered
 //Must be rendered inside Suspense component which allows fallback actions.
-// Fallbacks renders any react element while the component loads
-//May want to add error boundaries to allow other components to load if one fails
+// Fallbacks render any react element while the component loads
+//May want to add error boundaries to allow o
 
 const RenderApi = React.lazy(() => import('./MapApi/RenderApi'));
 const NewVacationForm = React.lazy(() => import('./Components/NewVacationForm'));
@@ -26,7 +25,6 @@ const [loading, setloading] = useState(true);
 console.log(data);
 //UseEffect - function that handles actions when something affects component
 //allows other component functions to run 
-//load json data from json bin api to display dynamically via VacationItem component
     useEffect(() => {
       //fetch sends a request to endpoint as argument and returns a promise(response)
       //asychronous does not interrupt other functions in component
@@ -36,43 +34,36 @@ console.log(data);
           'x-master-key':'$2b$10$iujLbiHUNNKEv6DqUG.AG.P90tn1SgbUBMiz8bwDhdAhaZYRcSxy2'
         }
         })
-        //Javascript statement that is a promise method that applies callback to handle response (synchronous and asynchronous)
-        //returns a promise for completion of onfulfilled or onrejected params for response
+        //handles response (synchronous and asynchronous) errors
       .then(response =>{
         if(response.ok){
-          //return json method converts response to a form that can be used by javascript
+          //json method converts response to a form that can be use by javascript
           console.log(response);
           return response.json();
         }
-        //Javascript expression that generates an exception and will throw response to then statement
         throw response;
       }) 
-      //attaches callback for resolution or rejection of promise. 
-      //if resolved sets data as value for data state variable
       .then(data =>{
         setData(data)
       })
-      //executes if promise is rejected
       .catch(error => {
         console.log('error fetching data')
         setError(error)
       })
-      //sets loading state once promise is either accepted or rejected
       .finally(()=> {
         setloading(false)
       })
     }, [])
-    //check loading state of app
     if(loading){
       return 'Your vacation planner is loading'
     }
-    //check for error in app loading
+    
     if(error){
       return 'error'
     }
 
     
-      //make state variables global variables
+      
   
     return (
       <Router>

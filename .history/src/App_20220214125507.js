@@ -5,10 +5,9 @@ import Welcome from "./Data/Welcome";
 import Intro from "./Data/Intro";
 import { GlobalProvider } from "./context/GlobalState";
 
-//Lazy loading return a promise which is a default exported component
 //automatically loads the bundle containing component when it is first rendered
 //Must be rendered inside Suspense component which allows fallback actions.
-// Fallbacks renders any react element while the component loads
+// Fallbacks render any react element while the component loads
 //May want to add error boundaries to allow other components to load if one fails
 
 const RenderApi = React.lazy(() => import('./MapApi/RenderApi'));
@@ -26,7 +25,6 @@ const [loading, setloading] = useState(true);
 console.log(data);
 //UseEffect - function that handles actions when something affects component
 //allows other component functions to run 
-//load json data from json bin api to display dynamically via VacationItem component
     useEffect(() => {
       //fetch sends a request to endpoint as argument and returns a promise(response)
       //asychronous does not interrupt other functions in component
@@ -44,11 +42,11 @@ console.log(data);
           console.log(response);
           return response.json();
         }
-        //Javascript expression that generates an exception and will throw response to then statement
+        //Javascript expression that generates an exception and will throw response. If no error then statement executes a. If rejected catch executes.
         throw response;
       }) 
-      //attaches callback for resolution or rejection of promise. 
-      //if resolved sets data as value for data state variable
+      //attaches callback for resolution or rejection of data. 
+      //if resolved sets data as value for data variable
       .then(data =>{
         setData(data)
       })
@@ -62,17 +60,16 @@ console.log(data);
         setloading(false)
       })
     }, [])
-    //check loading state of app
     if(loading){
       return 'Your vacation planner is loading'
     }
-    //check for error in app loading
+    
     if(error){
       return 'error'
     }
 
     
-      //make state variables global variables
+      
   
     return (
       <Router>

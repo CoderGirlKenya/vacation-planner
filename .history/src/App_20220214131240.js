@@ -5,10 +5,10 @@ import Welcome from "./Data/Welcome";
 import Intro from "./Data/Intro";
 import { GlobalProvider } from "./context/GlobalState";
 
-//Lazy loading return a promise which is a default exported component
+
 //automatically loads the bundle containing component when it is first rendered
 //Must be rendered inside Suspense component which allows fallback actions.
-// Fallbacks renders any react element while the component loads
+// Fallbacks render any react element while the component loads
 //May want to add error boundaries to allow other components to load if one fails
 
 const RenderApi = React.lazy(() => import('./MapApi/RenderApi'));
