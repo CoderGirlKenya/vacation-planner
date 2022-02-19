@@ -17,8 +17,8 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
   //Display weatherData temp feels like 
    
     console.log(weatherData); //object
-    // console.log(weatherData.weather);//array of objects 
-    // console.log(weatherData.main);//objects
+    console.log(weatherData.weather);//array of objects 
+    console.log(weatherData.main);//objects
     
   
              

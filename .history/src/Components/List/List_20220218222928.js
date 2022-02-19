@@ -7,7 +7,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
   const classes = useStyles();
 
   console.log(weatherData);
-  // console.log(weatherData.main);
+  console.log(weatherData.main);
   // console.log(weatherData.main.feels_like);
   // console.log(Math.round(weatherData.main.feels_like));
 
@@ -27,8 +27,8 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
     <div className={classes.container}>
       <Typography variant="h4">Food & Dining around you</Typography>
      {/* removed mapping method that did not work */}
-      {/* <Typography variant="h6">Current temp feels like {weatherData.main.feels_like} degrees</Typography> */}
-  
+        {/* <Typography variant="h6">Current temp feels like {weather} degrees</Typography>
+  */}
       {isLoading ? ( 
         <div className={classes.loading}>
           <CircularProgress size="5rem" />

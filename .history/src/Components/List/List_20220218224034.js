@@ -7,7 +7,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
   const classes = useStyles();
 
   console.log(weatherData);
-  // console.log(weatherData.main);
+  console.log(weatherData.main);
   // console.log(weatherData.main.feels_like);
   // console.log(Math.round(weatherData.main.feels_like));
 
