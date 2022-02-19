@@ -14,22 +14,16 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
   const classes = useStyles();
   console.log(places);
   
-  //Display weatherData temp feels like 
-   
-    console.log(weatherData); //object
-    console.log(weatherData.weather);//array of objects 
-    console.log(weatherData.main);//objects
-    console.log(weatherData.main.feels_like);
-  
-    const weather = (Math.round(weatherData.main.feels_like));
-    console.log(weather);
+  //Object of array of objects 
+   const icon = weatherData;
+    // console.log(icon);
   
              
   
 
   return (
     <div className={classes.mapContainer}>
-      <GoogleMapReact
+      {/* <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyA9egc_p2EInLmBckdsnxUhCUOKqkj-orw ' }}
         defaultCenter={coords}
         center={coords}
@@ -41,8 +35,8 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
         onChildClick={(child) => setChildClicked(child)}
-      > 
-         {places.length && places.map((place, i) => (
+      > */}
+        {/* {places.length && places.map((place, i) => (
           <div
             className={classes.markerContainer}
             lat={Number(place.latitude)}
@@ -61,16 +55,15 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
                   <Rating name="read-only" size="small" value={Number(place.rating)} readOnly />  
                 </Paper>
               )}
-          </div>
-       ))}
-         <div>
-           {/* {weatherData.weather.length && weatherData.weather.map((weather) => (
-        //  <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={`http://openweathermap.org/img/w/${weather.icon}.png`} height="70px" />
-           ))} */}
-         </div>
+          </div> */}
+        {/* ))} */}
+         {/* <div>
+           {icon.length && icon.map((weather) => (
+         <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} height="70px" />
+           ))}
+         </div> */}
 
-      </GoogleMapReact>
-    </div>
+     
   );
 };
 export default Map;

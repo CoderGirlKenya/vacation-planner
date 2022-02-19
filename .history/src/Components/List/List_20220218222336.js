@@ -27,7 +27,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
     <div className={classes.container}>
       <Typography variant="h4">Food & Dining around you</Typography>
      {/* removed mapping method that did not work */}
-        <Typography variant="h6">Current temp feels like {weather} degrees</Typography>
+        <Typography variant="h6">Current temp feels like {data} degrees</Typography> */}
  
       {isLoading ? ( 
         <div className={classes.loading}>

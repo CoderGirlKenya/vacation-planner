@@ -11,7 +11,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
   console.log(weatherData.main.feels_like);
   console.log(Math.round(weatherData.main.feels_like));
 
-  const weather = Math.round(weatherData.main.feels_like);
+  const weather = [];
   // weather.push(weatherData);
   // console.log(weather);
   
@@ -27,7 +27,7 @@ const List = ({ places, type, setType, rating, setRating, childClicked, isLoadin
     <div className={classes.container}>
       <Typography variant="h4">Food & Dining around you</Typography>
      {/* removed mapping method that did not work */}
-        <Typography variant="h6">Current temp feels like {weather} degrees</Typography>
+       {/* <Typography variant="h6">Current temp feels like {data} degrees</Typography> */}
  
       {isLoading ? ( 
         <div className={classes.loading}>

@@ -14,15 +14,9 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
   const classes = useStyles();
   console.log(places);
   
-  //Display weatherData temp feels like 
-   
-    console.log(weatherData); //object
-    console.log(weatherData.weather);//array of objects 
-    console.log(weatherData.main);//objects
-    console.log(weatherData.main.feels_like);
-  
-    const weather = (Math.round(weatherData.main.feels_like));
-    console.log(weather);
+  //Object of array of objects 
+   const icon = weatherData;
+    // console.log(icon);
   
              
   
@@ -63,13 +57,13 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
               )}
           </div>
        ))}
-         <div>
-           {/* {weatherData.weather.length && weatherData.weather.map((weather) => (
-        //  <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt={`http://openweathermap.org/img/w/${weather.icon}.png`} height="70px" />
-           ))} */}
-         </div>
+         {/* <div>
+           {icon.length && icon.map((weather) => (
+         <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} height="70px" />
+           ))}
+         </div> */}
 
-      </GoogleMapReact>
+      {/* </GoogleMapReact> */}
     </div>
   );
 };

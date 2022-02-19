@@ -22,7 +22,7 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
     console.log(weatherData.main.feels_like);
   
     const weather = (Math.round(weatherData.main.feels_like));
-    console.log(weather);
+    console.log(Math.round(weather);
   
              
   
